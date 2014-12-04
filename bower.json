@@ -1,0 +1,66 @@
+{
+  "name": "log",
+  "version": "0.0.0-pre",
+  "authors": [
+    "Tom Randolph <websites@thomasrandolph.info>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "underscore": "~1.7.0",
+    "require": "requirejs#^2.*",
+    "backbone.localStorage": "~1.1.13",
+    "sammy": "~0.7.6",
+    "ribcage": "~0.2.0",
+    "requirejs-text": "~2.0.12",
+    "font-awesome": "~4.2.0",
+    "animate-css": "~3.2.0",
+    "requirejs-plugins": "~1.0.2",
+    "bootstrap": "bootstrap-sass-official#*",
+    "requirejs-i18n": "~2.0.4",
+    "Cookies": "~0.4.0",
+    "backgrid": "#3b9f08c89281f",
+    "moment": "~2.8.3",
+    "backgrid-moment-cell": "#072bf42ded95",
+    "backgrid-filter": "#40284768ad5019",
+    "backgrid-paginator": "#bb43eadb8e7699",
+    "qtip2": "~2.2.1",
+    "backbone.validation": "~0.7.1",
+    "noty": "#2e0a79eedc068",
+    "pikaday": "~1.2.0",
+    "backbone-nested-model": "~2.0.1",
+    "stateface": "git://github.com/propublica/stateface.git#f6d1daf8ac1",
+    "moment-timezone": "~0.2.5"
+  },
+  "exportsOverride": {
+    "font-awesome": {
+      "/scss": "**/*.scss",
+      "/fonts": "fonts/*.*"
+    },
+    "bootstrap": {
+      "/bootstrap": "assets/stylesheets/bootstrap/*.scss",
+      "/bootstrap/mixins": "assets/stylesheets/bootstrap/mixins/*.scss",
+      "../bootstrap": "assets/stylesheets/_bootstrap.scss"
+    },
+    "qtip2": {
+      "../qtip2": "*.min.*"
+    },
+    "stateface": {
+      "font": "font/webfont/*",
+      "css": "reference/stateface.css"
+    }
+  },
+  "resolutions": {
+    "backgrid": "3b9f08c89281f",
+    "moment": "~2.8.3",
+    "underscore": "~1.7.0",
+    "backbone": "~1.1.2"
+  }
+}
