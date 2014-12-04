@@ -1,0 +1,18 @@
+div.logo-image{
+    background-image: $logo-image;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+
+    @include respond-to( mobile ){
+        background-image: $logo-image-sm;
+        background-size: auto;
+    }
+
+    @include respond-to( wide ){
+        background-size: auto;
+    }
+
+    height: 65px;
+    max-width: 181px;
+}

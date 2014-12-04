@@ -1,0 +1,21 @@
+table.backgrid{
+    td,
+    th{
+        white-space: normal;
+    }
+
+    th{
+        &.sortable{
+            a{
+                white-space: normal;
+                word-wrap: break-all;
+            }
+        }
+    }
+
+    #subscriptions &{
+        tbody tr:not(.empty){
+            cursor: pointer;
+        }
+    }
+}

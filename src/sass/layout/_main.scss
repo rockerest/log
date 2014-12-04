@@ -1,0 +1,14 @@
+main{
+    margin-left: $menu-width;
+
+    text-align: center;
+    overflow: hidden;
+
+    @include respond-to( small ){
+        margin-left: $compressed-menu-width;
+    }
+
+    nav.collapsed + &{
+        margin-left: $menu-width-collapsed;
+    }
+}

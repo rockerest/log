@@ -1,0 +1,51 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+a.btn{
+    cursor: pointer;
+}
+
+button{
+    border: none;
+    @include border-radius( 0.25em );
+
+    background-color: $info;
+
+    padding: 0.5em 1em;
+    margin: 0.1em;
+
+    color: $text;
+    text-shadow: 0 1px 1px $dark-text;
+
+    &:active,
+    &:focus{
+        box-shadow: inset 2px 2px 3px make-dark( $info );
+    }
+
+    &[type="submit"],
+    &.confirm{
+        background-color: $okay;
+
+        &:active,
+        &:focus{
+            box-shadow: inset 2px 2px 3px make-dark( $okay );
+        }
+    }
+
+    &.error{
+        background-color: $error;
+
+        &:active,
+        &:focus{
+            box-shadow: inset 2px 2px 3px make-dark( $error );
+        }
+    }
+}
+
+a.btn{
+    @extend button;
+
+    text-decoration: none;
+    display: inline-block;
+}

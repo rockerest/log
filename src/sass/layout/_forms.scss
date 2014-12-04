@@ -1,0 +1,123 @@
+form{
+    width: 100%;
+    text-align: left;
+}
+
+input,
+select{
+    width: 100%;
+
+    margin-bottom: 0.25em;
+    margin-top: 0.15em;
+    padding: 0.4em 0.6em;
+
+    line-height: 1.4em;
+    vertical-align: middle;
+    font-size: 1em;
+
+    &[type="checkbox"],
+    &[type="radio"]{
+        width: auto;
+    }
+
+    &[type="text"],
+    &[type="password"],
+    &[type="email"],
+    &[type="date"]{
+        box-shadow: inset 0 0 4px 3px $standard;
+        border: 0;
+        border-bottom: 1px dashed $dark;
+        background-color: $subtle;
+
+        &.error{
+            background-color: $subtle-error;
+            box-shadow: 0 0 4px 3px $subtle-error;
+        }
+
+        &:disabled{
+            border-bottom: none;
+            background-color: $subtle-background;
+            color: $dark-text;
+        }
+    }
+}
+
+label{
+    font-size: 1em;
+    line-height: 1.4em;
+
+    color: $dark-text;
+
+    + input,
+    + textarea,
+    + .clean-button-group{
+        margin-left: 0.75em;
+        width: 96%;
+    }
+}
+
+.authenticate-form{
+    h2{
+        line-height: 1em;
+
+        font-size: 2em;
+    }
+
+    input[type="text"]{
+        font-weight: bold;
+    }
+}
+
+.wrapset{
+    fieldset{
+        border-radius: 0.25em;
+        border: 1px solid $struts;
+
+        padding: 1em;
+
+        margin-bottom: 1.5em;
+
+        &:not(:first-child){
+            margin-top: 1em;
+        }
+    }
+}
+
+.crate header .backgrid-filter.form-search{
+    @extend .fr;
+    display: block;
+
+    margin: 0;
+
+    height: $crate-header-height;
+    width: 25%;
+
+    input[type="search"]{
+        height: auto;
+        width: 100%;
+
+        box-sizing: border-box; // Force proper rendering
+    }
+
+    .search,
+    a{
+        margin-top: 3px;
+        top: auto;
+
+        @include respond-to( small ){
+            margin-top: 1px;
+        }
+    }
+}
+
+form .input-search-results{
+    padding: 1em;
+
+    p{
+        margin-top: 0.5em;
+        cursor: pointer;
+        padding: 0.25em;
+
+        background-color: $subtle-background;
+    }
+}

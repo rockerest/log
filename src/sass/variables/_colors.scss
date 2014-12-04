@@ -1,0 +1,28 @@
+$text-color:        #404040;
+$inactive-color:    #9B9B9B;
+
+$button-active:     #EEEEEE;
+$subtle-background: #F5F5F5;
+
+$light-border:      #DDDDDD;
+$less-light-border: #DBDBDB;
+$struts:            #CCCCCC;
+
+$button-text:           #ACD0E5;
+$button-active-text:    #2A6496;
+$menu-text:             #F0F0F0;
+$dark-text:             #6B787F;
+
+$text:              #000000;
+$reading:           #232323;
+$standard:          #FFFFFF;
+
+$subtle:            darken( $standard, 10 );
+$subtle-error:      #FFCFCF;
+$dark:              darken( $standard, 20 );
+
+$error:     #F54C4C;
+$okay:      #90EE90;
+$warning:   #FFEAA8;
+$info:      #57B7E2;
+$clean:     #FFEAA8;

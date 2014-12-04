@@ -1,0 +1,41 @@
+// Page
+$fullsize:              1024px;
+$midsize:               780px;
+$smallsize:             480px;
+$mobile:                320px;
+
+// Headers
+$header-height:         50px;
+$crate-header-height:   30px;
+
+// Footers
+$footer-height:         40px;
+
+// Navigation
+$menu-width:                220px;
+$menu-width-collapsed:      70px;
+$compressed-menu-width:     140px;
+$link-left-pad:             25px;
+$compressed-link-left-pad:  10px;
+
+// Containers
+$breathing-room:        20px;
+$panel-padding:         1em;
+$inter-container:       1em;
+
+// Form Elements
+$selects-in-icon-rows:  -0.4em;
+
+// Option Bar
+$option-bar-height:     8em;
+
+$logo-height:           $header-height;
+
+$content-padding:       10px;
+$nav-height:            42px;
+$nav-margin-vertical:   ($header-height - $nav-height)/2;
+$nav-margin-horizontal: $content-padding;
+
+$line-height:           1em;
+$font-size:             14px;
+$compressed-font-size:  10px;
