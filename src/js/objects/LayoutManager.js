@@ -10,16 +10,28 @@ define(
         var LayoutManager = {},
             getLayout, setLayout, clearLayout, hasLayout;
 
-        LayoutManager.getStandardLayout = function( moduleName ){
-            return this.getLayout( function(){
-                var iLayout = new LogLayout( moduleName );
+        LayoutManager.getStandardLayout = function( force ){
+            if( force === undefined ){
+                force = true;
+            }
+
+            var layout = this.getLayout( function(){
+                var iLayout = new LogLayout();
 
                 iLayout.render();
-                iLayout.explore( "content" ).show( MainLayout );
-                iLayout.explore( "content.page" ).show( PostLayout );
+
+                // Had to fall back, switch force to true
+                force = true;
 
                 return iLayout;
             });
+
+            if( force ){
+                layout.explore( "content" ).show( MainLayout );
+                layout.explore( "content.page" ).show( PostLayout );
+            }
+
+            return layout;
         };
 
         LayoutManager.getLayout = function( fallback ){
