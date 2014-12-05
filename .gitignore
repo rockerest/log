@@ -3,3 +3,4 @@ build/*
 node_modules/*
 .sass-cache/*
 vendor/*
+src/content/data/posts.json
