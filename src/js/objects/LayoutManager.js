@@ -1,11 +1,11 @@
 define(
     [
         "utilities",
-        "layouts/log", "layouts/main"
+        "layouts/log", "layouts/main", "layouts/post"
     ],
     function(
         Utilities,
-        LogLayout, MainLayout
+        LogLayout, MainLayout, PostLayout
     ){
         var LayoutManager = {},
             getLayout, setLayout, clearLayout, hasLayout;
@@ -16,6 +16,7 @@ define(
 
                 iLayout.render();
                 iLayout.explore( "content" ).show( MainLayout );
+                iLayout.explore( "content.page" ).show( PostLayout );
 
                 return iLayout;
             });
