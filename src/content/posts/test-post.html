@@ -1,0 +1,13 @@
+<%
+    var published = "2014-12-05 00:06:05",
+        pubMoment = moment( published, "YYYY-MM-DD HH:mm:ss" );
+%>
+<header>
+    <h2>Test Post</h2>
+    <time datetime="<%= pubMoment.toISOString() %>"><%= pubMoment.fromNow() %></time>
+</header>
+<div class="body">
+    <p>
+        This is text content of a blog post.
+    </p>
+</div>
