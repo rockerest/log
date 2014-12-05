@@ -1,10 +1,8 @@
 define(
     [
-        "objects/Security",
         "objects/Storage"
     ],
     function(
-        Security,
         Storage
     ){
         var mod = {};
@@ -21,20 +19,6 @@ define(
                     payload();
 
                     Storage.del( "payload" );
-                }
-            });
-
-            rtr.before({
-                "except": {
-                    "path": [
-                        /#\/login(\/)?/,
-                        /#\/error/
-                    ]
-                }
-            }, function( ctx ){
-                if( !Security.isAuthenticated() ){
-                    ctx.redirect( "#/login/" + ctx.path );
-                    return false;
                 }
             });
         };
