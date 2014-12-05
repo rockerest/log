@@ -4,7 +4,6 @@ requirejs.config({
         // SHORTCUTS
         "vw":                       "../content/templates/views",
         "lyt":                      "../content/templates/layouts",
-        "config":                   "../content/config",
         "translations":             "../content/translations",
         "data":                     "../content/data",
         "strap":                    "objects/bootstrappers",
