@@ -1,4 +1,8 @@
-module.exports = function(grunt) {
+module.exports = function(grunt){
+    String.prototype.reverse = function(){
+        return this.split( "" ).reverse().join( "" );
+    };
+
     grunt.initConfig({
         "pkg": grunt.file.readJSON( "package.json" ),
         "bower": {
@@ -78,6 +82,18 @@ module.exports = function(grunt) {
                 }
             }
         },
+        "replace": {
+            "dev":{
+                "src": ['build/js/*.js'],
+                "overwrite": true,
+                "replacements":[
+                    {
+                        "from": '"@@!UrlArgs!@@"',
+                        "to": '"_=' + (new Date()).getTime() + '"'
+                    }
+                ]
+            }
+        },
         "sass": {
             "dev": {
                 "options": {
@@ -113,7 +129,7 @@ module.exports = function(grunt) {
         "watch": {
             "js": {
                 "files": ['src/js/**/*.json', 'src/js/**/*.js', 'src/content/**/*.html', 'Gruntfile.js', 'config.json'],
-                "tasks": ['code', 'copy']
+                "tasks": ['code', 'copy', 'replace:dev']
             },
             "sass": {
                 "files": ['src/sass/**/*.scss'],
@@ -160,6 +176,26 @@ module.exports = function(grunt) {
         grunt.file.mkdir( "./vendor" );
     });
 
+    grunt.registerTask( 'generatePostJSON', "Read in all posts and generate flat JSON for them", function(){
+        var postFiles = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
+            contents = [];
+
+        postFiles.forEach( function( file ){
+            var friendlyName = file
+                                .split( "/" ).pop() // get the filename
+                                .reverse() // reverse it so the extension is first
+                                .replace( "lmth.", "" ) // replace the first occurrence of ".html" in reverse
+                                .reverse(); // get the original filename
+
+            contents.push({
+                "name": friendlyName,
+                "post": grunt.file.read( file )
+            });
+        });
+
+        grunt.file.write( 'src/content/data/posts.json', JSON.stringify( contents ) );
+    });
+
     grunt.registerTask( 'style', 'Compile the SASS', function(){
         grunt.task.run(['sass:dev', 'notify:sass']);
     });
@@ -169,9 +205,10 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask( 'build', 'Do a system build', function(){
-        grunt.task.run(['style', 'code', 'copy:i18n', 'copy:images', 'copy:vendor', 'copy:data']);
+        grunt.task.run(['style', 'code', 'copy:i18n', 'copy:images', 'copy:vendor', 'copy:data', 'replace:dev']);
     });
 
     grunt.registerTask( 'setup', ['prepare', 'bower:install'] );
     grunt.registerTask( 'default', ['build', 'watch'] );
+    grunt.registerTask( 'parsePosts', ['generatePostJSON'] );
 };
