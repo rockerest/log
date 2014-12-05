@@ -1,23 +1,31 @@
 define(
     [
         // Libraries
-        "strap/backbone", "underscore",
-        // Dependencies
-        "text!vw/home/default.html",
+        "strap/backbone", "underscore", "moment",
+        // collections
+        "collections/posts",
+        // posts
+        "json!data/posts.json"
     ],
     function(
-        Backbone, _,
-        tmpl
+        Backbone, _, Moment,
+        PostCollection,
+        posts
     ){
         var DefaultHomeView = Backbone.View.extend({
-            "template": _.template( tmpl ),
-
             "render": function(){
-                this.$el.html( this.template() );
+                this.$el.html( this.template({
+                    "moment": Moment
+                }));
                 return this;
             },
 
             "initialize": function(){
+                var postList = new PostCollection( posts );
+
+                this.post = postList.at( 0 );
+                this.template = _.template( this.post.getPost() );
+
                 this.render();
             }
         });

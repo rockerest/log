@@ -24,7 +24,7 @@ define(
             rtr.get( /^\/$|^#$|^#\/$|^\/#\/$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
-                layout.explore( "content.page" ).show( DefaultHomeView );
+                layout.explore( "content.page.post" ).show( DefaultHomeView );
 
                 self.set({
                     "module": true,
