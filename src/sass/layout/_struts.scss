@@ -4,3 +4,14 @@ hr{
     border: 0;
     margin: 1em auto;
 }
+
+div.hr{
+    background-image: linear-gradient(
+        to right,
+        $standard, $struts, $standard
+    );
+
+    height: 1px;
+
+    margin: $breathing-room 0;
+}
