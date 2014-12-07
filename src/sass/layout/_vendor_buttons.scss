@@ -1,8 +1,9 @@
 .clean-buttons{
     label{
+        @extend .iblock;
+
         width: 100%;
 
-        display: inline-block;
         margin-bottom: 0.5em;
 
         + .clean-button,
@@ -26,9 +27,10 @@
 }
 
 .clean-button{
+    @extend .iblock;
+
     position: relative;
     overflow: visible;
-    display: inline-block;
     padding: 0.5em 1em;
     border: 1px solid #d4d4d4;
     margin: 0;
@@ -117,7 +119,8 @@
 }
 
 .clean-button-group{
-    display: inline-block;
+    @extend .iblock;
+
     list-style: none;
     padding: 0;
     margin: 0;

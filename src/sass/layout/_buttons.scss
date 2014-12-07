@@ -45,7 +45,7 @@ button{
 
 a.btn{
     @extend button;
+    @extend .iblock;
 
     text-decoration: none;
-    display: inline-block;
 }

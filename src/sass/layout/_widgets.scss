@@ -19,7 +19,7 @@
 }
 
 .saver{
-    display: inline-block;
+    @extend .iblock;
 
     margin-left: 0.75em;
 
