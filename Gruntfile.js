@@ -3,8 +3,7 @@ module.exports = function(grunt){
         return this.split( "" ).reverse().join( "" );
     };
 
-    var _ = require( "underscore" ),
-        moment = require( "moment" );
+    var _ = require( "underscore" );
 
     grunt.initConfig({
         "pkg": grunt.file.readJSON( "package.json" ),
@@ -192,11 +191,9 @@ module.exports = function(grunt){
                                 .reverse(), // get the original filename
                 postMeta = meta[ friendlyName ];
 
-            postMeta.pubMoment = moment( postMeta.published, "YYYY-MM-DD HH:mm:ss" );
-
             contents.push({
                 "meta": meta[ friendlyName ],
-                "post": _.template( grunt.file.read( file ) )( postMeta )
+                "post": grunt.file.read( file )
             });
         });
 
