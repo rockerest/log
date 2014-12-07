@@ -1,0 +1,13 @@
+<div class="hr bump"></div>
+<article class="tl">
+    <header class="clear">
+        <div class="fl">
+            <h2><%= meta.title %></h2>
+            Published by <a href="<%= meta.link %>"><%= meta.author %></a>
+        </div>
+        <time class="fr" datetime="<%= meta.pubMoment.toISOString() %>" title="<%= meta.pubMoment.format( 'DD MMM YYYY' ) %>"><%= meta.pubMoment.fromNow() %></time>
+    </header>
+    <div class="body">
+        <%= post %>
+    </div>
+</article>
