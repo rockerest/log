@@ -3,6 +3,9 @@ module.exports = function(grunt){
         return this.split( "" ).reverse().join( "" );
     };
 
+    var _ = require( "underscore" ),
+        moment = require( "moment" );
+
     grunt.initConfig({
         "pkg": grunt.file.readJSON( "package.json" ),
         "bower": {
@@ -177,23 +180,57 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask( 'generatePostJSON', "Read in all posts and generate flat JSON for them", function(){
-        var postFiles = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
+        var posts = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
+            meta = grunt.file.readJSON( 'src/content/data/index.json' ),
             contents = [];
 
-        postFiles.forEach( function( file ){
+        posts.forEach( function( file ){
             var friendlyName = file
                                 .split( "/" ).pop() // get the filename
                                 .reverse() // reverse it so the extension is first
                                 .replace( "lmth.", "" ) // replace the first occurrence of ".html" in reverse
-                                .reverse(); // get the original filename
+                                .reverse(), // get the original filename
+                postMeta = meta[ friendlyName ];
+
+            postMeta.pubMoment = moment( postMeta.published, "YYYY-MM-DD HH:mm:ss" );
 
             contents.push({
-                "name": friendlyName,
-                "post": grunt.file.read( file )
+                "meta": meta[ friendlyName ],
+                "post": _.template( grunt.file.read( file ) )( postMeta )
             });
         });
 
         grunt.file.write( 'src/content/data/posts.json', JSON.stringify( contents ) );
+    });
+
+    grunt.registerTask( 'scanPosts', "Compare posts and index to see if there are any discrepancies", function(){
+        var posts = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
+            postTitles = _( posts ).map( function( p ){ return p.split( "/" ).pop().reverse().replace( "lmth.", "" ).reverse() } ),
+            meta = grunt.file.readJSON( 'src/content/data/index.json' ),
+            metaTitles = _( meta ).keys(),
+            missingPosts = _( metaTitles ).difference( postTitles ),
+            missingMeta = _( postTitles ).difference( metaTitles ),
+            outputPosts = missingPosts.length === 1 ?
+                            [" is 1 information block ", "does"] :
+                            [" are " + missingPosts.length + " information blocks ", "do"],
+            outputMeta = missingMeta.length === 1 ?
+                            [" is 1 post ", "does"] :
+                            [" are " + missingMeta.length + " posts ", "do"];
+
+        if( missingPosts.length > 0 ){
+            grunt.log.error( "There" + outputPosts[0] + "in the index that " + outputPosts[1] + " not have associated content:\n" + grunt.log.wordlist( missingPosts ) );
+        }
+        else{
+            grunt.log.ok( missingPosts.length + " missing content." );
+        }
+
+        if( missingMeta.length > 0 ){
+            grunt.log.error( "There" + outputMeta[0] + "that " + outputMeta[1] + " not have associated information in the index:\n" + grunt.log.wordlist( missingMeta ) );
+            grunt.fail.warn( "It is important that each of these posts is identified in the index: " + grunt.log.wordlist( missingMeta ) + "." );
+        }
+        else{
+            grunt.log.ok( missingMeta.length + " missing information." );
+        }
     });
 
     grunt.registerTask( 'style', 'Compile the SASS', function(){
@@ -210,5 +247,5 @@ module.exports = function(grunt){
 
     grunt.registerTask( 'setup', ['prepare', 'bower:install'] );
     grunt.registerTask( 'default', ['build', 'watch'] );
-    grunt.registerTask( 'parsePosts', ['generatePostJSON'] );
+    grunt.registerTask( 'parsePosts', ['scanPosts', 'generatePostJSON', 'build'] );
 };

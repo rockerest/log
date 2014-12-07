@@ -1,12 +1,6 @@
-<%
-    var published = "2014-12-05 00:06:05",
-        author = "Tom Randolph",
-        link = "http://www.github.com/rockerest",
-        pubMoment = moment( published, "YYYY-MM-DD HH:mm:ss" );
-%>
 <header>
     <h2>Test Post</h2>
-    <time datetime="<%= pubMoment.toISOString() %>"><%= pubMoment.fromNow() %></time>
+    <time datetime="<%= pubMoment.toISOString() %>" title="<%= pubMoment.format( 'DD MMM YYYY' ) %>"><%= pubMoment.fromNow() %></time>
     <a href="<%= link %>"><%= author %></a>
 </header>
 <div class="body">
