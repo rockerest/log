@@ -78,33 +78,6 @@
     .body{
         padding: $panel-padding;
     }
-
-    &.info{
-        background-color: make-pastel( $info );
-    }
-
-    &.info{
-        border: 1px solid $struts;
-
-        .title-bar{
-            border-bottom: 1px solid $struts;
-        }
-    }
-
-    .title-bar{
-        text-align: left;
-        color: $reading;
-
-        padding: 0.6em;
-
-        background-color: $subtle-background;
-
-        box-shadow: 0 0 5px 0px $text;
-    }
-
-    &.collapsible .title-bar{
-        cursor: pointer;
-    }
 }
 
 .tile{

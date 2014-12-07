@@ -13,5 +13,11 @@ div.hr{
 
     height: 1px;
 
-    margin: $breathing-room 0;
+    &.bump{
+        margin-top: $breathing-room;
+    }
+
+    &.push{
+        margin-bottom: $breathing-room;
+    }
 }
