@@ -1,16 +1,22 @@
 define(
     [
         // Libraries
-        "strap/backbone",
+        "strap/backbone", "moment",
         // Models
         "models/post"
     ],
     function(
-        Backbone,
+        Backbone, Moment,
         PostModel
     ){
         var PostCollection = Backbone.PageableCollection.extend({
             "model": PostModel,
+            "comparator": function( a, b ){
+                var firstMoment = a.getPublishedMoment(),
+                    secondMoment = b.getPublishedMoment();
+
+                return secondMoment.diff( firstMoment );
+            },
             "mode": "client"
         });
 

@@ -5,26 +5,39 @@ define(
         // collections
         "collections/posts",
         // posts
-        "json!data/posts.json"
+        "json!data/posts.json",
+        // Views
+        "views/post/default"
     ],
     function(
         Backbone, _, Moment,
         PostCollection,
-        posts
+        posts,
+        PostView
     ){
         var DefaultHomeView = Backbone.View.extend({
             "render": function(){
-                this.$el.html( this.template({
-                    "moment": Moment
-                }));
+                var self = this,
+                    cont;
+
+                _( this.posts ).each( function( post ){
+                    post.render();
+
+                    self.$el.append( post.$el );
+                });
+
                 return this;
             },
 
             "initialize": function(){
-                var postList = new PostCollection( posts );
+                var postList = new PostCollection( posts ),
+                    Posts = [];
 
-                this.post = postList.at( 0 );
-                this.template = _.template( this.post.getPost() );
+                postList.each( function( post ){
+                    Posts.push( new PostView( post ) );
+                });
+
+                this.posts = Posts;
 
                 this.render();
             }

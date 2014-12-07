@@ -5,12 +5,15 @@ define(
         // Helpers
         "objects/LayoutManager",
         // Dependencies
-        "views/home/default", "objects/Router"
+        "objects/Router",
+        // Layouts & Views
+        "views/home/default"
     ],
     function(
         Backbone,
         LayoutManager,
-        DefaultHomeView, BaseRouter
+        BaseRouter,
+        DefaultHomeView
     ){
         var mod = function(){
             this.name = "home";
@@ -24,7 +27,7 @@ define(
             rtr.get( /^\/$|^#$|^#\/$|^\/#\/$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
-                layout.explore( "content.page.post" ).show( DefaultHomeView );
+                layout.explore( "content.page" ).show( DefaultHomeView );
 
                 self.set({
                     "module": true,

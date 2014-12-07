@@ -1,11 +1,11 @@
 define(
     [
         "utilities",
-        "layouts/log", "layouts/main", "layouts/post"
+        "layouts/log", "layouts/main"
     ],
     function(
         Utilities,
-        LogLayout, MainLayout, PostLayout
+        LogLayout, MainLayout
     ){
         var LayoutManager = {},
             getLayout, setLayout, clearLayout, hasLayout;
@@ -28,7 +28,6 @@ define(
 
             if( force ){
                 layout.explore( "content" ).show( MainLayout );
-                layout.explore( "content.page" ).show( PostLayout );
             }
 
             return layout;
