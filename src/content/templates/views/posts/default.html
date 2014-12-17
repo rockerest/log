@@ -3,14 +3,21 @@
     <header class="clear">
         <div class="fl">
             <h2><%= meta.title %></h2>
-            Published by <a href="<%= meta.link %>"><%= meta.author %></a>
-            <hr />
-            <a href="#/post/<%= meta.safeTitle %>">
-                <time
-                    datetime="<%= meta.pubMoment.toISOString() %>"
-                    title="<%= meta.pubMoment.format( 'DD MMM YYYY' ) %>"><%= meta.pubMoment.fromNow() %>
-                </time>
-            </a>
+            <ul class="fa-ul">
+                <li>
+                    <span class="fa fa-li fa-edit"></span>
+                    <a href="<%= meta.link %>"><%= meta.author %></a>
+                </li>
+                <li>
+                    <span class="fa fa-li fa-calendar-o"></span>
+                    <a href="#/post/<%= meta.safeTitle %>">
+                        <time
+                            datetime="<%= meta.pubMoment.toISOString() %>"
+                            title="<%= meta.pubMoment.format( 'DD MMM YYYY' ) %>"><%= meta.pubMoment.fromNow() %>
+                        </time>
+                    </a>
+                </li>
+            </ul>
         </div>
     </header>
     <div class="body">
