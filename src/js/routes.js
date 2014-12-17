@@ -3,13 +3,13 @@ define(
         // Libraries
         "sammy", "underscore",
         // Routers
-        "routers/log", "routers/home",
+        "routers/log", "routers/home", "routers/posts",
         // Error Router
         "routers/errors"
     ],
     function(
         Sammy, _,
-        LogRouter, HomeRouter,
+        LogRouter, HomeRouter, PostRouter,
         ErrorRouter
     ){
         var Routes = {},
@@ -19,6 +19,7 @@ define(
             var routers = [
                 LogRouter,
                 HomeRouter,
+                PostRouter,
                 ErrorRouter
             ],
             count = 0;
