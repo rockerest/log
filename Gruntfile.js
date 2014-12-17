@@ -188,11 +188,10 @@ module.exports = function(grunt){
                                 .split( "/" ).pop() // get the filename
                                 .reverse() // reverse it so the extension is first
                                 .replace( "lmth.", "" ) // replace the first occurrence of ".html" in reverse
-                                .reverse(), // get the original filename
-                postMeta = meta[ friendlyName ];
+                                .reverse(); // get the original filename
 
             contents.push({
-                "meta": meta[ friendlyName ],
+                "meta": _( meta ).findWhere({ "safeTitle": friendlyName }),
                 "post": grunt.file.read( file )
             });
         });
@@ -204,7 +203,7 @@ module.exports = function(grunt){
         var posts = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
             postTitles = _( posts ).map( function( p ){ return p.split( "/" ).pop().reverse().replace( "lmth.", "" ).reverse() } ),
             meta = grunt.file.readJSON( 'src/content/data/index.json' ),
-            metaTitles = _( meta ).keys(),
+            metaTitles = _( meta ).pluck( 'safeTitle' ),
             missingPosts = _( metaTitles ).difference( postTitles ),
             missingMeta = _( postTitles ).difference( metaTitles ),
             outputPosts = missingPosts.length === 1 ?

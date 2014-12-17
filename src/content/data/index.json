@@ -1,8 +1,26 @@
-{
-    "test-post": {
+[
+    {
         "title": "Testing Posts",
+        "safeTitle": "test-post",
+
         "published": "2014-12-05 00:06:05",
         "author": "Tom Randolph",
         "link": "http://www.github.com/rockerest"
+    },
+    {
+        "title": "Future Post",
+        "safeTitle": "future-post",
+
+        "published": "2018-12-16 00:00:00",
+        "author": "Tom Randolph",
+        "link": "http://www.github.com/rockerest"
+    },
+    {
+        "title": "New Post",
+        "safeTitle": "new-post",
+
+        "published": "2014-12-17 02:11:55",
+        "author": "Tom Randolph",
+        "link": "http://www.github.com/rockerest"
     }
-}
+]
