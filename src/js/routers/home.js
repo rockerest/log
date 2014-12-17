@@ -30,7 +30,6 @@ define(
                 layout.explore( "content.page" ).show( DefaultHomeView );
 
                 self.set({
-                    "module": true,
                     "title": "Home"
                 });
             });
