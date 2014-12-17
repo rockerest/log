@@ -4,8 +4,14 @@
         <div class="fl">
             <h2><%= meta.title %></h2>
             Published by <a href="<%= meta.link %>"><%= meta.author %></a>
+            <hr />
+            <a href="#/post/<%= meta.safeTitle %>">
+                <time
+                    datetime="<%= meta.pubMoment.toISOString() %>"
+                    title="<%= meta.pubMoment.format( 'DD MMM YYYY' ) %>"><%= meta.pubMoment.fromNow() %>
+                </time>
+            </a>
         </div>
-        <time class="fr" datetime="<%= meta.pubMoment.toISOString() %>" title="<%= meta.pubMoment.format( 'DD MMM YYYY' ) %>"><%= meta.pubMoment.fromNow() %></time>
     </header>
     <div class="body">
         <%= post %>
