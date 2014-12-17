@@ -9,17 +9,11 @@ define(
         Backbone, _, Moment,
         tmpl
     ){
-        var DefaultErrorView = Backbone.View.extend({
+        var PostView = Backbone.View.extend({
             "template": _.template( tmpl ),
 
             "tagName": "div",
             "className": "post",
-
-            "events": {
-                "click header": function( e ){
-                    console.log( this.meta );
-                }
-            },
 
             "render": function(){
                 this.$el.html( this.template({
@@ -45,6 +39,6 @@ define(
             }
         });
 
-        return DefaultErrorView;
+        return PostView;
     }
 );
