@@ -17,8 +17,7 @@ define(
     ){
         var DefaultHomeView = Backbone.View.extend({
             "render": function(){
-                var self = this,
-                    cont;
+                var self = this;
 
                 _( this.posts ).each( function( post ){
                     post.render();
@@ -34,7 +33,9 @@ define(
                     Posts = [];
 
                 postList.each( function( post ){
-                    Posts.push( new PostView( post ) );
+                    if( !post.getPublishedMoment().isAfter() ){
+                        Posts.push( new PostView( post ) );
+                    }
                 });
 
                 this.posts = Posts;
