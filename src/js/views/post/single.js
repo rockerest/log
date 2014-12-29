@@ -8,6 +8,8 @@ define(
         "json!data/posts.json",
         // Views
         "views/post/default",
+        // Events
+        "events/post/single",
         // Helpers
         "utilities"
     ],
@@ -16,35 +18,38 @@ define(
         PostCollection,
         posts,
         PostView,
+        vent,
         Utilities
     ){
         var SinglePostView = Backbone.View.extend({
-            "render": function(){
-                Utilities.setTitle( this.post.getInformation().title );
+                "render": function(){
+                    Utilities.setTitle( this.post.getInformation().title );
 
-                this.view.render();
-                this.$el.append( this.view.$el );
+                    this.view.render();
+                    this.$el.append( this.view.$el );
 
-                return this;
-            },
+                    vent.trigger( "ux:start", {"post": this.post} );
 
-            "initialize": function( options ){
-                var postList = new PostCollection( posts ),
-                    identifiedPost = postList.filter( function( post ){
-                        return post.getInformation().safeTitle === options.title;
-                    });
+                    return this;
+                },
 
-                if( identifiedPost.length === 1 ){
-                    this.post = identifiedPost[0];
-                    this.view = new PostView( identifiedPost[0] );
-                    this.render();
+                "initialize": function( options ){
+                    var postList = new PostCollection( posts ),
+                        identifiedPost = postList.filter( function( post ){
+                            return post.getInformation().safeTitle === options.title;
+                        });
+
+                    if( identifiedPost.length === 1 ){
+                        this.post = identifiedPost[0];
+                        this.view = new PostView( identifiedPost[0] );
+                        this.render();
+                    }
+                    else{
+                        location.href = "#/error/404/" + options.route;
+                        return false;
+                    }
                 }
-                else{
-                    location.href = "#/error/404/" + options.route;
-                    return false;
-                }
-            }
-        });
+            });
 
         return SinglePostView;
     }
