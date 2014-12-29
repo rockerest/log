@@ -18,6 +18,7 @@ requirejs.config({
         "backgrid":                 "../../vendor/backgrid/backgrid",
         "moment":                   "../../vendor/moment/moment",
         "pikaday":                  "../../vendor/pikaday/pikaday",
+        "highlight":                "../vendor/highlightjs/highlight.pack",
 
         // LIBRARY PLUGINS
         // jQuery Plugins
@@ -53,6 +54,9 @@ requirejs.config({
         },
         "underscore": {
             "exports": "_"
+        },
+        "jquery": {
+            "exports": "jQuery"
         }
     },
     "map": {
