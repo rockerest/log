@@ -1,4 +1,9 @@
-code{
+pre code{
     font-family: monospace;
-    background-color: $struts;
+    
+    border-radius: $standard-border-radius;
+    
+    *{
+        font-family: inherit;
+    }
 }
