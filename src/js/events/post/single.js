@@ -15,6 +15,10 @@ define(
         vent.on( "ux:start", function( passedEventData ){
             postUi.startUx( passedEventData.post );
         });
+        
+        vent.on( "click:post:comments:load", function( passedEventData ){
+            postUi.loadComments( passedEventData.post );
+        });
 
         window.dotlog.channels.singlePost = vent;
         return vent;
