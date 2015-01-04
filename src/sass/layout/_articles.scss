@@ -18,10 +18,19 @@ article{
             @extend .tl;
 
             margin-bottom: 0.25em;
+            
+            a{
+                text-decoration: none;
+                color: $reading;
+            }
         }
 
         li{
             margin-top: ($breathing-room / 4 );
+            
+            a{
+                text-decoration: underline;
+            }
         }
 
         a{
@@ -42,5 +51,12 @@ article{
             $subtle,
             $standard 25%
         );
+    }
+    
+    div.comments{
+        button{
+            @extend .center;
+            display: block;
+        }
     }
 }

@@ -1,0 +1,36 @@
+.tabs{
+    .control{
+        ul.tab-list{
+            @extend .clear;
+
+            padding: 0 0.75em;
+
+            border-bottom: $standard-border solid $struts;
+
+            overflow: hidden;
+
+            li{
+                $_tabs-li-padding: 0.5em;
+
+                float: left;
+                height: 1em + (2 * $_tabs-li-padding ) + $standard-border;
+
+                box-shadow: 3px 3px 4px 0 $struts;
+
+                border: $standard-border solid $struts;
+                border-bottom: 0;
+                @include border-radius( $standard-border-radius $standard-border-radius 0 0 );
+
+                padding: $_tabs-li-padding;
+
+                + li{
+                    margin-left: 0.5em;
+                }
+
+                &.active{
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

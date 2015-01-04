@@ -12,10 +12,4 @@ table.backgrid{
             }
         }
     }
-
-    #subscriptions &{
-        tbody tr:not(.empty){
-            cursor: pointer;
-        }
-    }
 }
