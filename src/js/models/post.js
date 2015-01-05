@@ -15,7 +15,7 @@ define(
 
             // helpers
             "getPublishedMoment": function(){
-                return Moment( this.getInformation().published, "YYYY-MM-DD HH:mm:ss" );
+                return Moment( this.getInformation().published );
             }
         });
 
