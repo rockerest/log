@@ -7,13 +7,16 @@ define(
         // posts
         "json!data/posts.json",
         // Views
-        "views/post/default"
+        "views/post/default",
+        // Events
+        "events/home/default"
     ],
     function(
         Backbone, _, Moment,
         PostCollection,
         posts,
-        PostView
+        PostView,
+        vent
     ){
         var DefaultHomeView = Backbone.View.extend({
             "render": function(){
@@ -24,6 +27,8 @@ define(
 
                     self.$el.append( post.$el );
                 });
+                
+                vent.trigger( "home:ux:start" );
 
                 return this;
             },
