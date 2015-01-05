@@ -21,6 +21,8 @@ define(
         var DefaultHomeView = Backbone.View.extend({
             "render": function(){
                 var self = this;
+                
+                self.$el.addClass( "all-posts" );
 
                 _( this.posts ).each( function( post ){
                     post.render();

@@ -1,5 +1,5 @@
 .post{
-    &:not(:only-of-type){
+    .all-posts &{
         max-height: 30em;
         overflow: hidden;
         position: relative;
