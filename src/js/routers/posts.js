@@ -19,7 +19,7 @@ define(
         mod.prototype.register = function( rtr ){
             var self = this;
 
-            rtr.get( /\/post\/([\w-]+)(?:\/)?$/, function(){
+            rtr.get( /^\/#\/post\/((?:\w|-)+)\/?$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
                 layout.explore( "content.page" ).show(

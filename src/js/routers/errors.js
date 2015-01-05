@@ -19,9 +19,9 @@ define(
         mod.prototype.register = function( rtr ){
             var self = this;
 
-            rtr.get( /\/error\/(\d+)\/(.*)?$/, function(){
+            rtr.get( /^\/#\/error\/(\d+)\/(.+)$/i, function(){
                 var layout = self.layoutManager.getStandardLayout();
-
+            
                 layout.explore( "content.page" ).show(
                     ErrorView,
                     {
@@ -29,7 +29,7 @@ define(
                         "route": this.params.splat[1]
                     }
                 );
-
+            
                 self.set({
                     "title": "An Error - " + this.params.splat[0]
                 });
