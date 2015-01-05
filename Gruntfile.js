@@ -200,18 +200,19 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask( 'scanPosts', "Compare posts and index to see if there are any discrepancies", function(){
-        var posts = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
-            postTitles = _( posts ).map( function( p ){ return p.split( "/" ).pop().reverse().replace( "lmth.", "" ).reverse() } ),
-            meta = grunt.file.readJSON( 'src/content/data/index.json' ),
-            metaTitles = _( meta ).pluck( 'safeTitle' ),
-            missingPosts = _( metaTitles ).difference( postTitles ),
-            missingMeta = _( postTitles ).difference( metaTitles ),
-            outputPosts = missingPosts.length === 1 ?
-                            [" is 1 information block ", "does"] :
-                            [" are " + missingPosts.length + " information blocks ", "do"],
-            outputMeta = missingMeta.length === 1 ?
-                            [" is 1 post ", "does"] :
-                            [" are " + missingMeta.length + " posts ", "do"];
+        var posts           = grunt.file.expand([ 'src/content/posts/**/*.html' ]),
+            postTitles      = _( posts ).map( function( p ){ return p.split( "/" ).pop().reverse().replace( "lmth.", "" ).reverse() } ),
+            meta            = grunt.file.readJSON( 'src/content/data/index.json' ),
+            metaTitles      = _( meta ).pluck( 'safeTitle' ),
+            missingPosts    = _( metaTitles ).difference( postTitles ),
+            missingMeta     = _( postTitles ).difference( metaTitles ),
+            outputPosts     = missingPosts.length === 1 ?
+                                [" is 1 information block ", "does"] :
+                                [" are " + missingPosts.length + " information blocks ", "do"],
+            outputMeta      = missingMeta.length === 1 ?
+                                [" is 1 post ", "does"] :
+                                [" are " + missingMeta.length + " posts ", "do"],
+            uniqMeta        = _(metaTitles).uniq();
 
         if( missingPosts.length > 0 ){
             grunt.log.error( "There" + outputPosts[0] + "in the index that " + outputPosts[1] + " not have associated content:\n" + grunt.log.wordlist( missingPosts ) );
@@ -226,6 +227,32 @@ module.exports = function(grunt){
         }
         else{
             grunt.log.ok( missingMeta.length + " missing information." );
+        }
+        
+        if( uniqMeta.length !== metaTitles.length ){
+            var counts = {},
+                dupeTitles = [];
+            
+            _(metaTitles).each( function( title ){
+                if( _(counts).has( title ) ){
+                    counts[ title ] += 1;
+                }
+                else{
+                    counts[ title ] = 1;
+                }
+            });
+            
+            _( counts ).each( function( count, title ){
+                if( count > 1 ){
+                    dupeTitles.push( title );
+                }
+            });
+            
+            grunt.log.error( "Non-unique URL-safe titles: " + grunt.log.wordlist( dupeTitles ) );
+            grunt.fail.warn( "All posts should have a unique URL-safe title.\n");
+        }
+        else{
+            grunt.log.ok( "All posts have unique URL-safe titles" );
         }
     });
 
