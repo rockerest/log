@@ -17,8 +17,10 @@ define(
                 .removeClass( "hide" );
                 
             this.$( "div.more" ).hide();
-                
-            Highlight.highlightBlock( this.$( this.getPost() ).find( "pre code" )[0] );
+            
+            if( this.hasCode() ){
+                Highlight.highlightBlock( this.$( this.getPost() ).find( "pre code" )[0] );
+            }
         };
         
         SinglePostUi.prototype.loadComments = function( Post ){
@@ -63,6 +65,10 @@ define(
         
         SinglePostUi.prototype.showDisqusThread = function(){
             this.$( "#disqus_thread" ).show();
+        };
+        
+        SinglePostUi.prototype.hasCode = function(){
+            return this.$( this.getPost() ).find( "pre code" ).length;
         };
 
         return SinglePostUi;
