@@ -3,6 +3,8 @@ article{
     margin: auto;
     
     width: $article-reading-width;
+    
+    background-color: $standard-background;
 
     > *{
         padding-left: $breathing-room;
@@ -37,7 +39,7 @@ article{
         }
 
         a{
-            color: $info;
+            color: $link-color-active;
         }
 
         time{
@@ -48,6 +50,18 @@ article{
     div.body{
         padding-top: $breathing-room;
         padding-bottom: $breathing-room;
+        
+        color: $reading;
+        
+        font-size: $reading-font-size;
+        
+        p{
+            line-height: $reading-line-height;
+            
+            + p{
+                margin-top: (2 * $breathing-room);
+            }
+        }
     }
     
     div.comments{

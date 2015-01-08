@@ -1,8 +1,14 @@
+$text:                  #000000;
+$reading:               #232323;
+$standard:              #FFFFFF;
+// Other text
 $text-color:        #404040;
 $inactive-color:    #9B9B9B;
 
 $button-active:     #EEEEEE;
-$subtle-background: #F5F5F5;
+
+$standard-background:   $standard;
+$subtle-background:     #F5F5F5;
 
 $light-border:      #DDDDDD;
 $less-light-border: #DBDBDB;
@@ -14,9 +20,9 @@ $button-active-text:    #2A6496;
 $menu-text:             #F0F0F0;
 $dark-text:             #6B787F;
 
-$text:              #000000;
-$reading:           #232323;
-$standard:          #FFFFFF;
+$link-underline-color:  $reading;
+$link-color:            $reading;
+$link-color-active:     $button-active-text;
 
 $subtle:            darken( $standard, 10 );
 $subtle-error:      #FFCFCF;

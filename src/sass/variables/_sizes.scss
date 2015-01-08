@@ -2,6 +2,8 @@
 $standard-border:           0.1em;
 $standard-border-radius:    0.25em;
 $standard-padding:          0.25em;
+$reading-line-height:       1.5em;
+$reading-font-size:         1.3em;
 
 // Page
 $fullsize:              1024px;
@@ -28,6 +30,10 @@ $breathing-room:        20px;
 $panel-padding:         1em;
 $inter-container:       1em;
 $article-reading-width: 50em;
+
+// Links
+$link-underline-width:  1px;
+$link-underline-offset: 2px;
 
 // Form Elements
 $label-line-height:     1.4em;
