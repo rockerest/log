@@ -62,6 +62,10 @@ article{
                 margin-top: (2 * $breathing-room);
             }
         }
+        
+        img{
+            margin: ($breathing-room / 3);
+        }
     }
     
     div.comments{
