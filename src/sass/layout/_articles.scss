@@ -1,5 +1,8 @@
 article{
     padding-top: ($breathing-room / 2 );
+    margin: auto;
+    
+    width: $article-reading-width;
 
     > *{
         padding-left: $breathing-room;
@@ -7,11 +10,6 @@ article{
     }
 
     header{
-        background-image: linear-gradient(
-            to bottom,
-            $standard,
-            $subtle
-        );
         padding: $breathing-room;
 
         h1, h2, h3, h4, h5{
@@ -23,6 +21,11 @@ article{
                 text-decoration: none;
                 color: $reading;
             }
+        }
+        
+        hr{
+            @extend .fl;
+            width: 100%;
         }
 
         li{
@@ -45,12 +48,6 @@ article{
     div.body{
         padding-top: $breathing-room;
         padding-bottom: $breathing-room;
-
-        background-image: linear-gradient(
-            to bottom,
-            $subtle,
-            $standard 25%
-        );
     }
     
     div.comments{
