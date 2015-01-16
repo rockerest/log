@@ -18,7 +18,7 @@ Before you do anything in the repo:
     
     If you use \*nix, `node` is **not** the correct package in your [distribution's repositories](http://packages.ubuntu.com/lucid/node); you need to install `nodejs`.
     
-    Sometimes the `node` command is not registered properly. This usually depends on the mechanism by which you installed Node. If `node -v` just isn't a command on your system, you can [try this](http://stackoverflow.com/a/18130296/597122). In most cases, all you need to do is `sudo ln -s /usr/bin/nodejs /usr/bin/node`. For Windows users, make sure the install directory for `node` is in your system %PATH.
+    Sometimes the `node` command is not registered properly. This usually depends on the mechanism by which you installed Node. If `node -v` just isn't a command on your system, you can [try this](http://stackoverflow.com/a/18130296/597122). In most cases, all you need to do is `sudo ln -s /usr/bin/nodejs /usr/bin/node`. For Windows users, make sure the install directory for `node` is in your system `%PATH%`.
     
 - you will need to install Bower and Grunt globally  
 
@@ -42,7 +42,7 @@ The following steps are necessary to compile the application:
 
 ## Writing content
 
-Writing a new post requires two steps:  
+Writing a new post requires three easy steps:  
 
 1. Write the content  
   - Posts are stored in `src/content/posts`
