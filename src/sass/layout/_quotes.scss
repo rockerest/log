@@ -1,0 +1,13 @@
+blockquote{
+    article &{
+        @extend .tc;
+        
+        margin: $breathing-room;
+        padding: $breathing-room;
+        
+        background-color: $subtle-background;
+        
+        font-size: (1.5 * $reading-font-size);
+        line-height: 1em;
+    }
+}
