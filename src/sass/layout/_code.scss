@@ -1,9 +1,13 @@
-pre code{
-    font-family: monospace;
-    
-    border-radius: $standard-border-radius;
-    
-    *{
-        font-family: inherit;
+pre{
+    code{
+        font-family: monospace;
+        font-size: 0.75em;
+        line-height: 1.25em;
+        
+        border-radius: $standard-border-radius;
+        
+        *{
+            font-family: inherit;
+        }
     }
 }

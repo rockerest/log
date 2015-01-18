@@ -18,3 +18,16 @@ body > header{
         line-height: 1em;
     }
 }
+
+section{
+    @for $i from 1 through 6 {
+        > h#{$i} {
+            @extend .tl;
+            
+            margin-bottom: 1em;
+            padding: 0.5em;
+            
+            border-bottom: $standard-border solid $color-struts;
+        }
+    }
+}

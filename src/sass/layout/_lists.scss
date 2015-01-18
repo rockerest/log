@@ -1,6 +1,7 @@
 ol,
 ul{
     margin: ($breathing-room / 2) $breathing-room;
+    line-height: 1.2em;
 }
 
 ol{
@@ -14,5 +15,11 @@ ul{
     article &{
         list-style-type: circle;
         list-style-position: inside;
+    }
+}
+
+li{
+    article &{
+        font-family: inherit;
     }
 }
