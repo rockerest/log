@@ -2,7 +2,9 @@ article{
     padding-top: ($breathing-room / 2 );
     margin: auto;
     
-    width: $article-reading-width;
+    width: 100%;
+    max-width: $article-reading-width;
+    min-width: $mobile;
     
     background-color: $standard-background;
 
@@ -61,10 +63,6 @@ article{
             + p{
                 margin-top: (2 * $breathing-room);
             }
-        }
-        
-        img{
-            margin: ($breathing-room / 3);
         }
     }
     
