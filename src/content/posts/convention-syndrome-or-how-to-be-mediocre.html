@@ -1,0 +1,147 @@
+<section>
+    <h3>Convention Syndrome</h3>
+    <figure class="fr" style="width: 50%;" >
+        <img src="build/img/code-convention.png" />
+        <figcaption>
+            Just a little taste of convention.
+        </figcaption>
+    </figure>
+    <p>
+        Not too long ago, I interviewed a potential candidate for a front end developer position.
+        As part of the interview, I asked the interviewee if they had ever used OAuth2 in coordination
+        with their JavaScript application. They had, and I asked them to show it to me.
+    </p>
+    <p>
+        The candidate explained to me how they had used <a href="http://yeoman.io/">Yeoman</a> to install
+        the <a href="https://github.com/meanjs/generator-meanjs">mean.js generator</a>. Then the interviewee
+        showed me some code not really related to OAuth. As I watched them, I pointed out some places the OAuth
+        handling might be done, but we dropped it before we found anything.
+    </p>
+    <p>
+        The last thing the candidate said regarding OAuth was <em>&quot;I used Yeoman to generate the MEAN
+        application and one of the options was to set up authentication, so I said yes and it just set
+        it up for me. I know it uses <a href="http://passportjs.org/">Passport</a>.&quot;</em>
+    </p>
+    <p>
+        Unfortunately, Passport has very little to do with your application
+        <a href="http://oauth.net/articles/authentication/">performing an authentication handshake</a> with
+        an authentication service &mdash; except that Passport <strong>is</strong> the authentication service. The
+        front end must handle access tokens, OAuth claims, and more.
+    </p>
+    <p>
+        Later, I asked the same candidate to
+        <a href="http://imranontech.com/2007/01/24/using-fizzbuzz-to-find-developers-who-grok-coding/">write
+        the FizzBuzz program</a>. Besides taking way too long, the interviewee couldn't remember the syntax
+        for a <span class="fw">for</span> loop, and resorted to writing a function that simulated a
+        <span class="fw">for</span> loop using a <span class="fw">while</span> loop. They explained this
+        oversight was because they typically used library iterators like
+        <a href="http://underscorejs.org/#each">Underscore's <span class="fw">.each</span></a>.
+    </p>
+    <p>
+        <a href="http://blog.codinghorror.com/why-cant-programmers-program/">Why can't programmers... program?</a>
+        The one thing that sticks out &mdash; and is reaffirmed over and over &mdash; is that an affliction is spreading (has spread?)
+        among some developers. I've called it <em>Convention Syndrome</em>, but it could easily be
+        called <em>Generator Syndrome</em>.
+    </p>
+</section>
+<section>
+    <h3>What's Going On?</h3>
+    <p>
+        More and more, the tools that we use are billed as <em>&quot;the last [X] you'll ever need.&quot;</em> Having
+        things done for you is more desirable than knowing how it works. <em>&quot;Spin up a prototype in 15
+        minutes,&quot;</em> or any variation of the amount of time, is so common that it makes me cringe just
+        hearing it. The problem I have seen over and over is that &mdash; despite being able to present a prototype
+        in a short amount of time &mdash; the developer is rarely able to create a truly innovative end result.
+        A convention can only hold your hand so far, and a generator will never meet exactly your business' needs.
+    </p>
+    <blockquote>
+        If I choose a tool to do each job, I have to know how they all hook together.
+    </blockquote>
+    <p>
+        I have used <a href="http://www.sublimetext.com/">Sublime Text</a> for a long time, and recently switched to
+        <a href="https://atom.io/">Atom</a>. One of the many things these editors have in common is that they are simple.
+        In fact, I'm writing this post in Atom right now. The beauty of a tool that does a basic task like <em>edit text</em>
+        and really nothing more has many facets, but here are two:
+        <ul>
+            <li>
+                It can do it well.
+            </li>
+            <li>
+                It forces me to understand the interactions.
+            </li>
+        </ul>
+    </p>
+    <p>
+        I generally choose a tool for each job, and each tool runs independently of the others. If I choose a tool to do
+        each job, I have to know how they all hook together. That is a positive thing.
+    </p>
+    <p>
+        The important distinction here is that &quot;job&quot; is absolutely not &quot;get a web app working.&quot; A task
+        is something much more concrete, like &quot;manage routing, hashchange, and URL history on the client side.&quot;
+        By the way, that's a task I'd earmark for <a href="http://sammyjs.org/">Sammy.js</a> to handle, but I'll talk
+        about that another time.
+    </p>
+    <p>
+        Let's go back to my interviewee from before. As we looked through OAuth2 code, I saw something familiar:
+    </p>
+    <pre>
+        <code>
+'Authorization': 'Bearer ' + Cookie( "access" )
+        </code>
+    </pre>
+    <p>
+        This is the code to add the Authorization header to a request, and provide your stored OAuth Bearer Token to the
+        API. Sure that we had just stumbled upon the OAuth handler code implementation, I asked the candidate
+        <em>&quot;where in your application is that access cookie set?&quot;</em> This is an application that this person
+        <strong>built</strong>, and their answer was, <em>&quot;...Uh, I'm not really sure.&quot;</em>
+    </p>
+    <p>
+        Reliance on generators and convention to &quot;make our jobs easier&quot; is doing nothing but creating a breed
+        of developer who's no better than the documentation of their tool <em>du jour</em>. The ability to think
+        &quot;outside-the-box&quot; apparently only applies if the newest tool on the block has a bigger box than
+        the tool that was being used previously. Knowledge of application architecture and understanding how systems work
+        seem to be scoped to only the tool. As soon as the tool disappears, stops being maintained, stops meeting needs,
+        or &mdash; frankly &mdash; stops being &quot;cool&quot; (whatever that means), so too does that knowledge
+        disappear, never applied again.
+    </p>
+    <p>
+        This is why I'm calling this <em>Convention <a href="http://en.wikipedia.org/wiki/Syndrome">Syndrome</a></em>: not
+        because conventions are the problem, but because it seems that the trend has been to forgo <em>understanding</em>
+        for the sake of <em>convention</em>. These symptoms may all stem from a central issue, perhaps a level of laziness,
+        perhaps a desire to produce instead of understand. Whatever the reason, I'm diagnosing the syndrome, not the condition.
+        The real issue is that the <em>Convention Syndrome</em> is creating a plethora of developers who appear to be wildly
+        unskilled if you move them just inches outside their comfort zone.
+    </p>
+</section>
+<section>
+    <h3>The Web, A La Carte</h3>
+    <p>
+        One of the problems I haven't even touched on regarding this topic is future-proofing applications. The reason I
+        haven't touched on it is because I can rant at length about it, but more importantly: because it's not central to
+        the symptoms of the syndrome.
+    </p>
+    <p>
+        That said, however, it would behoove me to mention one piece of maintainability to help explain why <em>a la
+        carte</em> is so powerful. Let's assume you've chosen a monolith to build your app. Let's call it <em>Angelic</em>.
+        It does everything for you except butter your bread. It comes with some tradeoffs, like you hard code the names
+        of your models directly into the presentation template, and you do the same thing with code to respond to events
+        like clicks &mdash; they're written right into the HTML. You know this isn't great, but it's the
+        <em>Angelic</em> way, and you get so much from the framework. Then, one day a long time from now, <em>Angelic</em>
+        is no longer being maintained, and you need a feature in your models that it doesn't provide. Instead of swapping
+        out the tool that provides your models, you're stuck <strong>rewriting your app from scratch, because...
+        monolith.</strong>
+    </p>
+    <blockquote>
+        Are you a programmer? An integrator? Or can you actually create?
+    </blockquote>
+    <p>
+        Of course, the alternative is to choose the right tool for each job. Understanding how each piece of your code works
+        with each other piece fosters not only responsible development (and develop<em>ers</em>), but it encourages
+        experimentation and progressive thinking. If you understand what's going on under the hood, you're able to envision
+        solutions that would have been completely obscured to you when something else was handling all of the grunt work.
+    </p>
+    <p>
+        So the question becomes: Are you a programmer? An integrator? Or can you actually create? It doesn't need to be
+        from scratch, but you should at least know which parts you need to make it all work.
+    </p>
+</section>
