@@ -59,6 +59,7 @@ article{
         
         p{
             line-height: $reading-line-height;
+            font-size: $reading-font-size - 0.4;
             
             + p{
                 margin-top: (2 * $breathing-room);
