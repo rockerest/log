@@ -1,4 +1,15 @@
 figure{
+    margin-top: ( 0.5 * $breathing-room );
+    margin-bottom: ( 0.5 * $breathing-room );
+    
+    &.fr{
+        margin-left: $breathing-room;
+    }
+    
+    &.fl{
+        margin-right: $breathing-room;
+    }
+    
     img{
         width: 100%;
         
