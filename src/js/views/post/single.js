@@ -23,6 +23,9 @@ define(
     ){
         var SinglePostView = Backbone.View.extend({
             "events": {
+                "click sup [data-href]": function( e ){
+                    vent.trigger( "click:post:footnote:signal", { "link": e.target } );
+                },
                 "click .comments .load": function(){
                     vent.trigger( "click:post:comments:load", {"post": this.post} );
                 }

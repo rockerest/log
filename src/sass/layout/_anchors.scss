@@ -3,6 +3,10 @@ a[href^="mailto:"]{
 }
 
 article .body a{
+    &[data-href]{
+        cursor: pointer;
+    }
+    
     @include underline( $link-color );
     @include transition( color 350ms ease );
     

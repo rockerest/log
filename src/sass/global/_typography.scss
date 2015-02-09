@@ -27,6 +27,15 @@ h1, h2, h3, h4, h5, h6{
     line-height: 1em;
 }
 
+sup{
+    font-size: 0.5em;
+    vertical-align: super;
+}
+
+code{
+    font-family: monospace;
+}
+
 .fw{
     font-family: monospace;
 }

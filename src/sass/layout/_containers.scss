@@ -1,4 +1,10 @@
 .post{
+    .footnotes{
+        margin-top: $breathing-room;
+        
+        font-size: 0.75em;
+    }
+    
     .all-posts &{
         max-height: 30em;
         overflow: hidden;

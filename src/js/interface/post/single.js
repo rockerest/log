@@ -19,8 +19,22 @@ define(
             this.$( "div.more" ).hide();
             
             if( this.hasCode() ){
-                Highlight.highlightBlock( this.$( this.getPost() ).find( "pre code" )[0] );
+                this.$( this.getPost() ).find( "pre code" ).each( function( i, code ){
+                    Highlight.highlightBlock( code );
+                });
             }
+        };
+        
+        SinglePostUi.prototype.getFootnoteSignalledBy = function( element ){
+            var footnote = this.$( element ).data( "href" );
+            
+            return this.$( footnote )[0];
+        };
+        
+        SinglePostUi.prototype.scrollTo = function( element ){
+            this.$( "html, body" ).animate({
+                "scrollTop": this.$( element ).offset().top
+            }, 800 );
         };
         
         SinglePostUi.prototype.loadComments = function( Post ){
