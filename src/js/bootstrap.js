@@ -1,5 +1,4 @@
 requirejs.config({
-    "urlArgs": "@@!UrlArgs!@@",
     "paths": {
         // SHORTCUTS
         "vw":                       "../content/templates/views",

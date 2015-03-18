@@ -89,18 +89,6 @@ module.exports = function(grunt){
                 }
             }
         },
-        "replace": {
-            "dev":{
-                "src": ['build/js/*.js'],
-                "overwrite": true,
-                "replacements":[
-                    {
-                        "from": '"@@!UrlArgs!@@"',
-                        "to": '"_=' + (new Date()).getTime() + '"'
-                    }
-                ]
-            }
-        },
         "cssmin": {
             "build": {
                 "files": [{
@@ -147,7 +135,7 @@ module.exports = function(grunt){
         "watch": {
             "js": {
                 "files": ['src/js/**/*.json', 'src/js/**/*.js', 'src/content/**/*.html', 'Gruntfile.js', 'config.json'],
-                "tasks": ['code', 'copy', 'replace:dev']
+                "tasks": ['code', 'copy']
             },
             "sass": {
                 "files": ['src/sass/**/*.scss'],
@@ -180,7 +168,6 @@ module.exports = function(grunt){
 
     // Non-contrib tasks
     grunt.loadNpmTasks( 'grunt-bower-task' );
-    grunt.loadNpmTasks( 'grunt-text-replace' );
     grunt.loadNpmTasks( 'grunt-notify' );
 
     // Custom tasks
@@ -289,7 +276,6 @@ module.exports = function(grunt){
             'copy:images',
             'copy:vendor',
             'copy:data',
-            'replace:dev',
             'uglify'
         ]);
     });
