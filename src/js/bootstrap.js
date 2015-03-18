@@ -12,7 +12,7 @@ requirejs.config({
         "backbone":                 "../../vendor/backbone/backbone",
         "underscore":               "../../vendor/underscore/underscore",
         "sammy":                    "../../vendor/sammy/sammy",
-        "jquery":                   ["//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery", "../../vendor/jquery/jquery"],
+        "jquery":                   ["//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min", "../../vendor/jquery/jquery"],
         "ribcage":                  "../../vendor/ribcage/ribcage",
         "cookies":                  "../../vendor/Cookies/cookies",
         "backgrid":                 "../../vendor/backgrid/backgrid",

@@ -9,7 +9,7 @@ define(
         Backbone, Moment,
         PostModel
     ){
-        var PostCollection = Backbone.PageableCollection.extend({
+        var PostCollection = Backbone.Collection.extend({
             "model": PostModel,
             "comparator": function( a, b ){
                 var firstMoment = a.getPublishedMoment(),

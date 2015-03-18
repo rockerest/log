@@ -2,7 +2,7 @@ define(
     [
         "backbone", "underscore",
         "objects/extensions/backbone/Collection", "objects/extensions/backbone/Model", "objects/extensions/backbone/View",
-        "backbone.validation", "backbone.nested-model", "backbone.paginator"
+        "backbone.validation"
     ],
     function( Backbone, _, C, M, V ){
 

@@ -5,7 +5,7 @@ define(
     function(
         Backbone, Moment
     ){
-        var PostModel = Backbone.NestedModel.extend({
+        var PostModel = Backbone.Model.extend({
             "getPost": function(){
                 return this.get( "post" );
             },

@@ -18,6 +18,11 @@ module.exports = function(grunt){
             }
         },
         "uglify": {
+            "build": {
+                "files": {
+                    './build/js/log.min.js': './build/js/log.js'
+                }
+            },
             "vendor": {
                 "files": {
                     './build/vendor/require/require.min.js': './build/vendor/require/require.min.js'
@@ -96,13 +101,24 @@ module.exports = function(grunt){
                 ]
             }
         },
+        "cssmin": {
+            "build": {
+                "files": [{
+                    "expand": true,
+                    "cwd": 'build/css',
+                    "src": ['*.css', '!*.min.css'],
+                    "dest": 'build/css',
+                    "ext": '.min.css'
+                }]
+            }
+        },
         "sass": {
             "dev": {
                 "options": {
                     "style": 'expanded'
                 },
                 "files": {
-                    "build/css/screen.min.css": "src/sass/screen.scss"
+                    "build/css/screen.css": "src/sass/screen.scss"
                 }
             }
         },
@@ -160,6 +176,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks( 'grunt-contrib-rename' );
     grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+    grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 
     // Non-contrib tasks
     grunt.loadNpmTasks( 'grunt-bower-task' );
@@ -257,7 +274,7 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask( 'style', 'Compile the SASS', function(){
-        grunt.task.run(['sass:dev', 'notify:sass']);
+        grunt.task.run(['sass:dev', 'cssmin', 'notify:sass']);
     });
 
     grunt.registerTask( 'code', 'Compile the code', function(){
@@ -265,7 +282,16 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask( 'build', 'Do a system build', function(){
-        grunt.task.run(['style', 'code', 'copy:i18n', 'copy:images', 'copy:vendor', 'copy:data', 'replace:dev']);
+        grunt.task.run([
+            'style',
+            'code',
+            'copy:i18n',
+            'copy:images',
+            'copy:vendor',
+            'copy:data',
+            'replace:dev',
+            'uglify'
+        ]);
     });
 
     grunt.registerTask( 'setup', ['prepare', 'bower:install'] );
