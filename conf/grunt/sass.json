@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "options": {
+            "style": "expanded"
+        },
+        "files": {
+            "build/css/screen.css": "src/sass/screen.scss"
+        }
+    }
+}

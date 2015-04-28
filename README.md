@@ -1,4 +1,4 @@
-#log    
+#log
 
 A Public Log File
 
@@ -6,20 +6,14 @@ A Public Log File
 
 Before you do anything in the repo:
 
-- you will need to install the [Sass Rubygem](https://rubygems.org/gems/sass).  
-
-    If you use *nix and Aptitude, this is sometimes as easy as `sudo apt-get install rubygems; sudo gem install sass`. It is unlikely it will be this easy for you.
-
-    Some people like to use a [version manager](http://rvm.io/) to keep conflicting Ruby versions from interacting, and to install Ruby that way, then install Gems normally.
-
 - you will need to install [Node.js](http://nodejs.org/) **and** the [Node Package Manager](https://www.npmjs.com/).
 
     Sometimes NPM doesn't install alongside Node, sometimes it does. Your mileage may vary (typically depending on the mechanism by which you get Node).
-    
+
     If you use \*nix, `node` is **not** the correct package in your [distribution's repositories](http://packages.ubuntu.com/lucid/node); you need to install `nodejs`.
-    
+
     Sometimes the `node` command is not registered properly. This usually depends on the mechanism by which you installed Node. If `node -v` just isn't a command on your system, you can [try this](http://stackoverflow.com/a/18130296/597122). In most cases, all you need to do is `sudo ln -s /usr/bin/nodejs /usr/bin/node`. For Windows users, make sure the install directory for `node` is in your system `%PATH%`.
-    
+
 - you will need to install [Bower](http://bower.io/#install-bower) and [Grunt](http://gruntjs.com/getting-started) globally  
 
     Run these commands in your terminal:  

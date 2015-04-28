@@ -1,0 +1,46 @@
+{
+    "i18n": {
+        "files": [
+            {
+                "expand": true,
+                "cwd": "src/js/nls/",
+                "src": ["**"],
+                "dest": "build/js/nls/"
+            }
+        ]
+    },
+    "images": {
+        "files": [
+            {
+                "expand": true,
+                "cwd":  "src/images/",
+                "src": ["**"],
+                "dest": "build/img/"
+            }
+        ]
+    },
+    "vendor": {
+        "files": [
+            {
+                "src": "./vendor/require/require.js",
+                "dest": "./build/vendor/require/require.min.js"
+            },
+            {
+                "expand": true,
+                "cwd": "vendor/font-awesome/fonts/",
+                "src": ["**"],
+                "dest": "build/vendor/font-awesome/"
+            }
+        ]
+    },
+    "data": {
+        "files": [
+            {
+                "expand": true,
+                "cwd": "src/content/data",
+                "src": ["**/*.json"],
+                "dest": "build/data/"
+            }
+        ]
+    }
+}

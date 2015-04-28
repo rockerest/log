@@ -1,0 +1,10 @@
+{
+    "install":{
+        "options":{
+            "layout": "byComponent",
+            "targetDir": "./vendor",
+            "cleanBowerDir": true,
+            "verbose": true
+        }
+    }
+}

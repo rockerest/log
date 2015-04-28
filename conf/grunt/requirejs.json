@@ -1,0 +1,17 @@
+{
+    "compile":{
+        "options":{
+            "baseUrl": "src/js/",
+            "paths":{
+                "jquery": "empty:"
+            },
+            "mainConfigFile": "src/js/bootstrap.js",
+            "stubModules": ["text"],
+            "optimize": "uglify2",
+            "generateSourceMaps": true,
+            "preserveLicenseComments": false,
+            "name": "bootstrap",
+            "out": "build/js/log.js"
+        }
+    }
+}

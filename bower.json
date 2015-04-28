@@ -25,17 +25,11 @@
     "requirejs-plugins": ">=1.0.0",
     "requirejs-i18n": ">=2.0.0",
     "Cookies": ">=1.0.0",
-    "backgrid": "#3b9f08c89281f",
     "moment": ">=2.0.0",
-    "backgrid-moment-cell": "#072bf42ded95",
-    "backgrid-filter": "#40284768ad5019",
-    "backgrid-paginator": "#bb43eadb8e7699",
     "qtip2": ">=2.0.0",
     "backbone.validation": "*",
     "noty": ">=2.0.0",
     "pikaday": ">=1.0.0",
-    "backbone-nested-model": ">=2.0.0",
-    "stateface": "git://github.com/propublica/stateface.git#f6d1daf8ac1",
     "moment-timezone": ">=0.0.0",
     "jquery": "^1.11.0"
   },
@@ -51,14 +45,9 @@
     },
     "qtip2": {
       "../qtip2": "*.min.*"
-    },
-    "stateface": {
-      "font": "font/webfont/*",
-      "css": "reference/stateface.css"
     }
   },
   "resolutions": {
-    "backgrid": "3b9f08c89281f",
     "underscore": ">=1.5.0",
     "moment": ">=2.6.0",
     "jquery": "^1.11.0"

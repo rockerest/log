@@ -1,0 +1,12 @@
+{
+    "build": {
+        "files": {
+            "./build/js/log.min.js": "./build/js/log.js"
+        }
+    },
+    "vendor": {
+        "files": {
+            "./build/vendor/require/require.min.js": "./build/vendor/require/require.min.js"
+        }
+    }
+}

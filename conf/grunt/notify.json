@@ -1,0 +1,14 @@
+{
+    "requirejs": {
+        "options": {
+            "title": "Build Succeeded",
+            "message": "RequireJS has finished compiling"
+        }
+    },
+    "sass": {
+        "options": {
+            "title": "SASS Compile Succeeded",
+            "message": "The stylesheets have been compiled successfully"
+        }
+    }
+}
