@@ -5,11 +5,12 @@ define(
     function(
         Storage
     ){
+        "use strict";
         var mod = {};
 
         mod.register = function( rtr ){
             rtr.notFound = function(){
-                location.href = "#/error/404/" + this.last_location[1];
+                location.href = "/error/404/" + this.last_location[ 1 ];
             };
 
             rtr.after( function(){
@@ -20,7 +21,7 @@ define(
 
                     Storage.del( "payload" );
                 }
-            });
+            } );
         };
 
         return mod;

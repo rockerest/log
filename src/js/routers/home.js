@@ -15,26 +15,27 @@ define(
         BaseRouter,
         DefaultHomeView
     ){
-        var mod = function(){
+        "use strict";
+        var Mod = function(){
             this.name = "home";
         };
 
-        mod.prototype = new BaseRouter();
+        Mod.prototype = new BaseRouter();
 
-        mod.prototype.register = function( rtr ){
+        Mod.prototype.register = function( rtr ){
             var self = this;
 
-            rtr.get( /^\/$|^#$|^#\/$|^\/#\/$/, function(){
+            rtr.get( /^\/$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
                 layout.explore( "content.page" ).show( DefaultHomeView );
 
-                self.set({
+                self.set( {
                     "title": "Home"
-                });
-            });
+                } );
+            } );
         };
 
-        return new mod();
+        return new Mod();
     }
 );

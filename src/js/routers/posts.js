@@ -12,26 +12,27 @@ define(
         BaseRouter,
         SinglePostView
     ){
-        var mod = function(){};
+        "use strict";
+        var Mod = function(){};
 
-        mod.prototype = new BaseRouter();
+        Mod.prototype = new BaseRouter();
 
-        mod.prototype.register = function( rtr ){
+        Mod.prototype.register = function( rtr ){
             var self = this;
 
-            rtr.get( /^\/#\/post\/((?:\w|-)+)\/?$/, function(){
+            rtr.get( /post\/((?:\w|-)+)\/?$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
                 layout.explore( "content.page" ).show(
                     SinglePostView,
                     {
-                        "title": this.params.splat[0],
-                        "route": rtr.last_location[1]
+                        "title": this.params.splat[ 0 ],
+                        "route": rtr.last_location[ 1 ]
                     }
                 );
-            });
+            } );
         };
 
-        return new mod();
+        return new Mod();
     }
 );

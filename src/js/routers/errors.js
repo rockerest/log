@@ -12,30 +12,31 @@ define(
         BaseRouter,
         ErrorView
     ){
-        var mod = function(){};
+        "use strict";
+        var Mod = function(){};
 
-        mod.prototype = new BaseRouter();
+        Mod.prototype = new BaseRouter();
 
-        mod.prototype.register = function( rtr ){
+        Mod.prototype.register = function( rtr ){
             var self = this;
 
-            rtr.get( /^\/#\/error\/(\d+)\/(.+)$/i, function(){
+            rtr.get( /error\/(\d+)\/(.+)$/i, function(){
                 var layout = self.layoutManager.getStandardLayout();
-            
+
                 layout.explore( "content.page" ).show(
                     ErrorView,
                     {
-                        "error": this.params.splat[0],
-                        "route": this.params.splat[1]
+                        "error": this.params.splat[ 0 ],
+                        "route": this.params.splat[ 1 ]
                     }
                 );
-            
-                self.set({
-                    "title": "An Error - " + this.params.splat[0]
-                });
-            });
+
+                self.set( {
+                    "title": "An Error - " + this.params.splat[ 0 ]
+                } );
+            } );
         };
 
-        return new mod();
+        return new Mod();
     }
 );

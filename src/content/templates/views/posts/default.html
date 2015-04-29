@@ -3,7 +3,7 @@
     <header class="clear">
         <div class="fl">
             <h2>
-                <a href="#/post/<%= meta.safeTitle %>"><%= meta.title %></a>
+                <a href="/post/<%= meta.safeTitle %>"><%= meta.title %></a>
             </h2>
             <ul class="fa-ul">
                 <li>
@@ -12,7 +12,7 @@
                 </li>
                 <li>
                     <span class="fa fa-li fa-calendar-o"></span>
-                    <a href="#/post/<%= meta.safeTitle %>">
+                    <a href="/post/<%= meta.safeTitle %>">
                         <time
                             datetime="<%= meta.pubMoment.toISOString() %>"
                             title="<%= meta.pubMoment.format( 'DD MMM YYYY' ) %>"><%= meta.pubMoment.fromNow() %>
@@ -32,5 +32,5 @@
     </div>
 </article>
 <div class="more">
-    <a class="btn" href="#/post/<%= meta.safeTitle %>">Go to the full article</a>
+    <a class="btn" href="/post/<%= meta.safeTitle %>">Go to the full article</a>
 </div>
