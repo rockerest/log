@@ -29,7 +29,6 @@ Before you do anything in the repo:
 
 ## Building the log
 
-As it is, log comes with exactly one post, with nothing in it.  
 The following steps are necessary to compile the application:  
 `grunt parsePosts`
 
