@@ -1,4 +1,4 @@
-module.exports = function(grunt){
+module.exports = function( grunt ){
     String.prototype.reverse = function(){
         return this.split( "" ).reverse().join( "" );
     };
@@ -120,6 +120,7 @@ module.exports = function(grunt){
             'copy:images',
             'copy:vendor',
             'copy:data',
+            'copy:hosted',
             'uglify'
         ]);
     });
