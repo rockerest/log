@@ -37,7 +37,7 @@ define(
                 this.view.render();
                 this.$el.append( this.view.$el );
 
-                vent.trigger( "ux:start", { "post": this.post } );
+                vent.trigger( "ux:start" );
 
                 return this;
             },

@@ -1,29 +1,31 @@
 .post{
     .footnotes{
-        margin-top: $breathing-room;
-        
+        border-top: $standard-border dashed $struts;
+        margin-top: (3 * $breathing-room);
+        padding-top: (0.5 * $breathing-room);
+
         font-size: 0.75em;
     }
-    
+
     .all-posts &{
         max-height: 30em;
         overflow: hidden;
         position: relative;
-        
+
         background-color: $standard;
-        
+
         .comments{
             @extend .hide;
         }
     }
-    
+
     div.more{
         position: absolute;
         bottom: 0; left: 0;
         width: 100%;
         text-align: center;
         margin: 0; padding: $breathing-room 0;
-        
+
         background: linear-gradient(
             to bottom,
             rgba(255,255,255,0) 0%,
@@ -36,15 +38,15 @@
             GradientType=0
         );
     }
-    
+
     h2{
         font-size: 2em;
     }
-    
+
     h3{
         font-size: 1.25em;
     }
-    
+
     h4{
         font-size: 1.1em;
     }
