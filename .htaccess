@@ -3,4 +3,8 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
 RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.html [L]
+
 FallbackResource /index.html
