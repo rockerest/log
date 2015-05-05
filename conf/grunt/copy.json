@@ -33,6 +33,16 @@
             }
         ]
     },
+    "hosted": {
+        "files": [
+            {
+                "expand": true,
+                "cwd": "src/content/files",
+                "src": ["**/*", ".eslintrc"],
+                "dest": "build/files/"
+            }
+        ]
+    },
     "data": {
         "files": [
             {
