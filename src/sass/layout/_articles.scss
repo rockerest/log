@@ -1,11 +1,11 @@
 article{
     padding-top: ($breathing-room / 2 );
     margin: auto;
-    
+
     width: 100%;
     max-width: $article-reading-width;
     min-width: $mobile;
-    
+
     background-color: $standard-background;
 
     > *{
@@ -20,13 +20,13 @@ article{
             @extend .tl;
 
             margin-bottom: 0.25em;
-            
+
             a{
                 text-decoration: none;
                 color: $reading;
             }
         }
-        
+
         hr{
             @extend .fl;
             width: 100%;
@@ -34,7 +34,7 @@ article{
 
         li{
             margin-top: ($breathing-room / 4 );
-            
+
             a{
                 text-decoration: underline;
             }
@@ -52,21 +52,27 @@ article{
     div.body{
         padding-top: $breathing-room;
         padding-bottom: $breathing-room;
-        
+
         color: $reading;
-        
+
         font-size: $reading-font-size;
-        
+
         p{
             line-height: $reading-line-height;
             font-size: $reading-font-size - 0.4;
-            
+
             + p{
                 margin-top: (2 * $breathing-room);
             }
         }
+
+        figure{
+            + p:not(:first-of-type){
+                margin-top: (2 * $breathing-room);
+            }
+        }
     }
-    
+
     div.comments{
         button{
             @extend .center;
