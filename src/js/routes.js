@@ -13,8 +13,10 @@ define(
         ErrorRouter
     ){
         "use strict";
-        var Routes = {},
-            log = new Sammy();
+        var Routes = {};
+        var router = new Sammy();
+
+        window.dotlog.router = router;
 
         Routes.startup = function(){
             var loc = window.location;
@@ -29,10 +31,10 @@ define(
 
             _( routers ).each( function( r ){
                 ++count;
-                r.register( log );
+                r.register( router );
 
                 if( count === routers.length ){
-                    log.run( startedAt );
+                    router.run( startedAt );
                 }
             } );
         };

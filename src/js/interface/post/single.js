@@ -48,7 +48,7 @@ define(
             var shortName = "tomrandolph",
                 scriptSrc = "//" + shortName + ".disqus.com/embed.js",
                 identifier = Post.getInformation().safeTitle,
-                url = "http://log.local.com/#!/post/" + identifier;
+                url = "http://log.rockerest.com/post/" + identifier;
 
             /*eslint camelcase:0*/
             window.disqus_identifier = identifier;
