@@ -3,9 +3,10 @@ define(
         "strap/backbone", "moment"
     ],
     function(
-        Backbone, Moment
+        Backbone, moment
     ){
-        var PostModel = Backbone.Model.extend({
+        "use strict";
+        var PostModel = Backbone.Model.extend( {
             "getPost": function(){
                 return this.get( "post" );
             },
@@ -15,9 +16,9 @@ define(
 
             // helpers
             "getPublishedMoment": function(){
-                return Moment( this.getInformation().published );
+                return moment( this.getInformation().published );
             }
-        });
+        } );
 
         return PostModel;
     }

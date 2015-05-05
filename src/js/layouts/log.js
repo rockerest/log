@@ -12,25 +12,26 @@ define(
         Utilities,
         tmpl, MainLayout
     ){
+        "use strict";
         var LogLayout = function(){
             var regions = {
-                    "content":  "#content"
-                },
-                presets = {
-                    "content":{
-                        "object": MainLayout
-                    }
-                },
-                el = "body",
-                _layout = new Ribcage();
+                "content": "#content"
+            };
+            var presets = {
+                "content": {
+                    "object": MainLayout
+                }
+            };
+            var el = "body";
+            var internalLayout = new Ribcage();
 
-            _layout
+            internalLayout
                 .addRegions( regions )
                 .setTemplate( tmpl )
                 .addPresets( presets )
                 .setElement( el );
 
-            return _layout;
+            return internalLayout;
         };
 
         return LogLayout;

@@ -18,18 +18,19 @@ define(
         PostView,
         vent
     ){
-        var DefaultHomeView = Backbone.View.extend({
+        "use strict";
+        var DefaultHomeView = Backbone.View.extend( {
             "render": function(){
                 var self = this;
-                
+
                 self.$el.addClass( "all-posts" );
 
                 _( this.posts ).each( function( post ){
                     post.render();
 
                     self.$el.append( post.$el );
-                });
-                
+                } );
+
                 vent.trigger( "home:ux:start" );
 
                 return this;
@@ -43,13 +44,13 @@ define(
                     if( !post.getPublishedMoment().isAfter() ){
                         Posts.push( new PostView( post ) );
                     }
-                });
+                } );
 
                 this.posts = Posts;
 
                 this.render();
             }
-        });
+        } );
 
         return DefaultHomeView;
     }

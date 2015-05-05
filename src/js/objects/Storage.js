@@ -1,6 +1,7 @@
 define(
     [],
     function(){
+        "use strict";
         var Storage = {};
 
         Storage.set = function( key, value ){

@@ -7,15 +7,16 @@ define(
         Utilities,
         LogLayout, MainLayout
     ){
-        var LayoutManager = {},
-            getLayout, setLayout, clearLayout, hasLayout;
+        "use strict";
+        var LayoutManager = {};
+        var layout, getLayout, setLayout, clearLayout, hasLayout;
 
         LayoutManager.getStandardLayout = function( force ){
             if( force === undefined ){
                 force = true;
             }
 
-            var layout = this.getLayout( function(){
+            layout = this.getLayout( function(){
                 var iLayout = new LogLayout();
 
                 iLayout.render();
@@ -24,7 +25,7 @@ define(
                 force = true;
 
                 return iLayout;
-            });
+            } );
 
             if( force ){
                 layout.explore( "content" ).show( MainLayout );
@@ -34,17 +35,17 @@ define(
         };
 
         LayoutManager.getLayout = function( fallback ){
-            var layout;
+            var tempLayout;
 
             if( hasLayout() ){
                 return getLayout();
             }
             else{
-                layout = fallback();
+                tempLayout = fallback();
 
-                setLayout( layout );
+                setLayout( tempLayout );
 
-                return layout;
+                return tempLayout;
             }
         };
 
@@ -63,11 +64,11 @@ define(
         };
 
         getLayout = function(){
-            return window.dotlog.layouts.__managed;
+            return window.dotlog.layouts.managed;
         };
 
         setLayout = function( renderedLayout ){
-            window.dotlog.layouts.__managed = renderedLayout;
+            window.dotlog.layouts.managed = renderedLayout;
             window.dotlog.layouts.hasManagedLayout = true;
         };
 

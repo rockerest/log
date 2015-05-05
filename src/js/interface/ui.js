@@ -4,22 +4,22 @@ define(
         "qtip2"
     ],
     function(
-        _, $,
-        Timezone
+        _, $
     ){
+        "use strict";
         var Interface = function(){
             this.$ = $;
             this._ = _;
         };
 
         Interface.prototype.makeSpinner = function( element, replace ){
+            var spinner = $( '<span class="fa fa-spin fa-circle-o-notch"></span>' );
+            var $element = $( element );
+            var content = $element.html();
+
             if( !replace ){
                 replace = false;
             }
-
-            var spinner = $( '<span class="fa fa-spin fa-circle-o-notch"></span>' ),
-            $element = $( element ),
-            content = $element.html();
 
             if( replace ){
                 $element.html( spinner );

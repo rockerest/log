@@ -9,17 +9,18 @@ define(
         Backbone, _, Moment,
         tmpl
     ){
-        var PostView = Backbone.View.extend({
+        "use strict";
+        var PostView = Backbone.View.extend( {
             "template": _.template( tmpl ),
 
             "tagName": "div",
             "className": "post",
 
             "render": function(){
-                this.$el.html( this.template({
+                this.$el.html( this.template( {
                     "meta": this.meta,
                     "post": this.post
-                }) );
+                } ) );
 
                 this.delegateEvents();
 
@@ -37,7 +38,7 @@ define(
 
                 this.render();
             }
-        });
+        } );
 
         return PostView;
     }

@@ -1,5 +1,6 @@
 define(
     function(){
+        "use strict";
         var Utilities = {};
 
         Utilities.extend = function( parent, child ){
@@ -13,10 +14,10 @@ define(
 
             child.prototype.constructor = child;
 
-            Object.defineProperty( child.prototype, 'constructor', {
+            Object.defineProperty( child.prototype, "constructor", {
                 enumerable: false,
                 value: child
-            });
+            } );
         };
 
         Utilities.warn = function( message ){

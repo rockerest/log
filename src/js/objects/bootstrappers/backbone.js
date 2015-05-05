@@ -5,6 +5,7 @@ define(
         "backbone.validation"
     ],
     function( Backbone, _, C, M, V ){
+        "use strict";
 
         _( Backbone.Model.prototype ).extend( M );
         _( Backbone.Collection.prototype ).extend( C );

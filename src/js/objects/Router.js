@@ -7,14 +7,15 @@ define(
         _,
         LayoutManager
     ){
+        "use strict";
         var BaseRouter = function(){
             this.layoutManager = LayoutManager;
         };
 
         BaseRouter.prototype.set = function( options ){
-            var _options = _( options );
+            var opts = _( options );
 
-            if( _options.has( "title" ) ){
+            if( opts.has( "title" ) ){
                 this.layoutManager.setLayoutTitle( options.title );
             }
         };

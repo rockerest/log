@@ -7,6 +7,8 @@ define(
         jQuery,
         within, isWithin
     ){
+        "use strict";
+
         jQuery = within.extend( jQuery );
         jQuery = isWithin.extend( jQuery );
 

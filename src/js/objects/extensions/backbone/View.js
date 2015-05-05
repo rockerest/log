@@ -1,6 +1,7 @@
 define(
     [],
     function(){
+        "use strict";
         var View = {
             "getKey": function( event ){
                 return event.keyCode || event.which;

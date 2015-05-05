@@ -9,11 +9,12 @@ define(
         Backbone, _,
         tmpl
     ){
-        var DefaultErrorView = Backbone.View.extend({
+        "use strict";
+        var DefaultErrorView = Backbone.View.extend( {
             "template": _.template( tmpl ),
 
             "render": function(){
-                this.$el.html( this.template({ "error": this.error, "route": this.route }) );
+                this.$el.html( this.template( { "error": this.error, "route": this.route } ) );
                 return this;
             },
 
@@ -22,7 +23,7 @@ define(
                 this.route = data.route;
                 this.render();
             }
-        });
+        } );
 
         return DefaultErrorView;
     }

@@ -9,7 +9,8 @@ define(
         Backbone, Moment,
         PostModel
     ){
-        var PostCollection = Backbone.Collection.extend({
+        "use strict";
+        var PostCollection = Backbone.Collection.extend( {
             "model": PostModel,
             "comparator": function( a, b ){
                 var firstMoment = a.getPublishedMoment(),
@@ -18,7 +19,7 @@ define(
                 return secondMoment.diff( firstMoment );
             },
             "mode": "client"
-        });
+        } );
 
         return PostCollection;
     }

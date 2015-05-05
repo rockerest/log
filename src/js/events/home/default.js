@@ -1,21 +1,22 @@
 define(
     [
         // Libraries
-        "strap/backbone",
+        "strap/backbone", "underscore",
         // Dependencies
-        "interface/home/default",
+        "interface/home/default"
     ],
     function(
-        Backbone,
+        Backbone, _,
         HomeUi
     ){
+        "use strict";
         var vent = window.dotlog.channels.home || _.extend( {}, Backbone.Events ),
             homeUi = new HomeUi();
-        
-        vent.on( "home:ux:start", function( passedEventData ){
+
+        vent.on( "home:ux:start", function(){
             homeUi.startUx();
-        });
-        
+        } );
+
         window.dotlog.channels.home = vent;
         return vent;
     }

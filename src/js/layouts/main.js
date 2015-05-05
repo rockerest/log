@@ -12,17 +12,18 @@ define(
         Utilities,
         tmpl
     ){
-        var MainLayout = function( options ){
+        "use strict";
+        var MainLayout = function(){
             var regions = {
-                    "page":         "main"
+                    "page": "main"
                 },
-                _layout = new Ribcage();
+                internalLayout = new Ribcage();
 
-            _layout
+            internalLayout
                 .addRegions( regions )
                 .setTemplate( tmpl );
 
-            return _layout;
+            return internalLayout;
         };
 
         return MainLayout;
