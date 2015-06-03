@@ -1,0 +1,273 @@
+<section>
+    <h3>What's Important To You?</h3>
+    <p>
+        Think of your favorite programming language, or even just the last piece of code that you wrote.
+        Was it Java? PHP? Python? Ruby?
+        It doesn't really matter; imagine someone took a part of that code away or &mdash; in the case of an entire
+        language &mdash; took away one part of the language. What would you miss the most?
+    </p>
+    <p>
+        For many, it would be the <code>.</code> (that's a period). Or maybe you're big into JavaScript and <code>function</code>
+        would be pretty devastating. Almost anyone would agree that <code>{}</code> or <code>()</code> would be close
+        to impossible to work without. Think about it for a minute.
+    </p>
+    <p>
+        While you think about that, here's another question: what are your code standards?
+        If you work for a company, your department may have a set of universal code standards. Your standards could be something passed by word of mouth. You may not have official style standards at all. If you work freelance, or on contracts, or even if you're just the only developer at your company, you might define your own standards.  Maybe you base them on what others say about the topic, or maybe they're just based on time spent figuring out what feels right or wrong.
+    </p>
+    <p>
+        You might put curly braces on their own line. When you make function calls, perhaps your parameter list starts
+        with a space, or the space may be placed before the parenthesis. These are questions of code style, but the word <em>style</em> guides most people down the wrong path. Often discussions of which way to format code devolve into <em>"Well, I prefer it this way"</em> but rarely include any robust reasoning. Fortunately, discussions about code style are not just exercises in opinion, they're discussions about the underlying beliefs that we hold regarding source code, and it's important to talk about it.
+    </p>
+    <p>
+        At this point I may have stirred some skepticism. Perhaps you're wondering how the preceding four paragraphs
+        have any cohesive idea behind them. Or maybe you disagree with my premise that code style is about
+        our beliefs in code. That's alright, people disagree with me all the time.
+    </p>
+    <p>
+        The question, of course, is <em>How does all of this tie together?</em>
+        Before we get into the heart of the matter, let's revisit question one: <em>"What would you miss the most?"</em>
+        If you're sitting in front of one, look at your keyboard. If you aren't, imagine the keyboard you use the most
+        often. What's there? Is there a clue about what you might miss the most if it were taken away?
+    </p>
+</section>
+<section>
+    <h3>Hello Darkness, My Old Friend</h3>
+    <p>
+        <a href="https://en.wikipedia.org/wiki/Human_eye">"The human eye is an organ that reacts to light".</a>
+        <a href="https://atom.io/themes/monokai">This</a> is what <a href="http://atom.io">my editor</a> looks like.
+        To avoid eye strain, I prefer a dark background with light characters on top. This lets my eye react to light
+        only when it's important. Since my biology is tuned to light sources, I use that to my advantage and
+        make the sources of light have meaning. When my eye notices a bright spot, that bright spot always carries syntactical purpose. The opposite case - where dark blobs on a completely lighted background carry meaning - forces the eye (which we've already established reacts to light, not dark) to search for the <strong>absence</strong> of the photons that would normally trigger biological responses. This goes against everything the human eye is made to do.
+    </p>
+    <figure class="fr" style="width: 50%;" >
+        <img src="/build/img/dots.png" />
+        <figcaption>
+            Which is easier to see?
+        </figcaption>
+    </figure>
+    <p>
+        There's another benefit to playing to my biology: it's easier for me to see where the light ends and the
+        darkness begins, and where the inverse occurs. Again, this goes back to the same point: my eye (and yours too, unless you're &mdash; like &mdash; an owl or something) are best suited to seeing light, and when the light stops, we see that more easily.
+    </p>
+    <p>
+        <em>"So what? It's easier for my eye to pick up dark characters on a light background."</em>
+        Let's assume just for this moment that this statement is true (even though biology tells us it is not), the bottom line is that <strong>the places where there are no characters are just as important as the places where there are.</strong> If we accept the premise that blank places between characters are important, then we're in a good place. If you accept that it's easier for the human eye to see those spaces when they aren't photon-laden, we're in an even better place, but it's not a required premise.
+    </p>
+    <p>
+        Don't think whitespace is important? Think maybe it is, but you don't know why...
+    </p>
+</section>
+<section>
+    <h3>Whitespace Is The Invisible Code Inside Your Code</h3>
+    <p>
+        Let's revisit the first question one more time: <em><strong>"What would you miss the most?"</strong></em>
+        I hope by now you're on the same page as me; it's likely that the most crucial character in your code is one
+        you never even see &mdash; the space. I imagine a newline character is a close second, although most code will
+        function without line breaks if it's constructed carefully.
+    </p>
+    <p>
+        So now let's look back at the second question: <em>"What are your code standards?"</em> Perhaps it's a little clearer now how the first paragraphs of this post go together: Code standards are almost always concerned with <strong>where</strong> and <strong>how much</strong> whitespace is placed.
+    </p>
+    <p>
+        Often, these standards are discussed at length in meetings with a few developers, and then they are written
+        down and codified and distributed and they cause distress among developers who disagree but whether or not
+        a developer agrees they're put into an IDE and forgotten about, never to be checked again.
+    </p>
+    <p>
+        Or they're ignored completely.
+    </p>
+    <p>
+        There are typically two reasons that code standards (or <strong>whitespace rules</strong>) are ignored or rarely thought about:
+        <ol>
+            <li>
+                <em>"Standards are irrelevant to my actual work."</em>
+            </li>
+            <li>
+                <em>"I disagree with these standards, and don't feel ownership of them. I will implement them in an automated way to satisfy my company and ignore them otherwise."</em>
+            </li>
+        </ol>
+    </p>
+    <p>
+        The second reason is a communication and respect problem that's massively outside the scope of this post, but it can be addressed. In fact, one of the ways to address a problem with developers feeling a lack of ownership is to agree on a baseline of purpose. Purposeless direction is one of the best ways to create an environment where developers feel a lack of ownership. It's very likely that by addressing point #1 above, you can create an environment where standards are as much a part of code as the non-whitespace is. Read on for how to subvert the idea in point #1 above. Remember, this is about subverting your closely-held beliefs about what code is, not subverting others'.
+    </p>
+</section>
+<section>
+    <h3>Whitespace Rules Reflect What We Believe About Code</h3>
+    <p>
+        Before we talk about what code <strong>is</strong>, we have to talk about what code is: the boring, dry syntax. As you read through the next five code examples and their accompanying text, you may have some sort of visceral reaction. This is good. It means you have an opinion about the details, which, to me, is one of the marks of a good programmer.<sup><a data-href="#one">*</a></sup>
+    </p>
+    <pre>
+        <code>
+var getThing = function (foo, bar)
+{
+    return foo + bar;
+}
+        </code>
+    </pre>
+    <p>
+        The code above probably feels very comfortable to many people. It also represents a fundamental misinterpretation of the language.<sup><a data-href="#two">^</a></sup>
+    </p>
+    <p>
+        Take a look at this example:
+    </p>
+    <pre>
+        <code>
+var thing = getThing (foo, bar);
+        </code>
+    </pre>
+    <p>
+        This looks wrong to most people. <strong>That's because it is.</strong> Oddly, the syntax hasn't changed at all, but detail-oriented developers will usually balk to some degree at this latter syntax.
+    </p>
+    <p>
+        To understand why this is, we need to break this code into parts. I'll do it inline for reference, on the function definition first. You'll see that I've removed all whitespace. This isn't a mistake &mdash; it's so that we can talk about the language without style preferences intruding; nobody I know of likes their code without whitespace, so this will make nobody happy.
+    </p>
+    <pre>
+        <code>
+var getThing=function(foo,bar){return foo+bar;};
+//           ^        ^        ^
+//           |        |        |--function body statements
+//           |        |
+//           |        |--parameter list
+//           |
+//           |--function declaration
+        </code>
+    </pre>
+    <p>
+        Note that &mdash; without any ambiguity &mdash; the <code>parameter list</code> ends at the second <code>r</code>, which returns the <em>"syntactical context"</em> to the <code>function declaration</code> for the characters <code>){</code>. Similarly, the <code>function body statements</code> end at the first <code>;</code> which returns <em>syntactical context</em> to the <code>function declaration</code> to finish out the line.
+    </p>
+    <p>
+        It's simple to verify the breakdown above, because the parameter list in a function declaration is optional, as are function body statements. Therefore, we can write the minimum possible functional declaration as such:
+    </p>
+    <pre>
+        <code>
+var getThing=function(){};
+        </code>
+    </pre>
+    <p>
+        The only interesting thing we have here is a function declaration.
+    </p>
+    <p>
+        So now let's look at the second code example &mdash; the invocation.
+    </p>
+    <pre>
+        <code>
+var thing=getThing("this","that");
+        </code>
+    </pre>
+    <p>
+        We can refer to the same breakdown as above, but we're missing the function body declaration in it's entirety &mdash; we don't include a body when we're invoking. The bottom line in this situation is that the <strong>parts</strong> of the line are the same, we just have fewer. There's no new names with what we're doing, we still write the <code>function invocation</code> (which directly replaces the <code>function declaration</code>) and the <code>parameter list</code>.
+    </p>
+    <p>
+        At this point, I suspect that there is not any contention about these facts. They are <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function">easy to verify</a>, and they make sense conceptually.
+    </p>
+    <p>
+        Now that we've established which parts of the language we're dealing with, let's use the very first code example in this section and write out the parts of the code. But wait, we've also established that whitespace is good for the eye: it indicates where <strong>light stops</strong> and <strong>dark begins</strong>. This is a clue in our code of where things start and stop. So in this next exercise, we will mark every part of the code, and we will also mark what part of the code lies immediately after the whitespace.
+    </p>
+    <pre>
+        <code>
+var getThing = function (foo, bar)
+//             ^        ^^       ^--function declaration
+//             |        ||--parameter list
+//             |        |--function declaration
+//             |--function declaration
+  {
+//^--function declaration
+    return foo + bar;
+//  ^--function body statements
+  }
+//^--function declaration
+        </code>
+    </pre>
+    <p>
+        Note above that I decided against marking what follows the whitespace in the parameter list. I can't think of anyone who sees a comma-separated list and wishes that there was no space following the commas. That doesn't &mdash; by any stretch of the imagination &mdash; mean that those people don't exist. However, it is likely that most people expect <code>, </code>&nbsp;when they encounter a <code>list</code> of any kind.
+    </p>
+    <p>
+        In this breakdown, we see five occurrences of the string <code>function declaration</code>. This should seem wrong. <strong>That's because it is</strong>. We have <code>function declaration</code>. We break <code>function declaration</code> up by inserting two items inside of it: <code>parameter list</code> and <code>function body statements</code>. Logically, we should see only three instances of <code>function declaration</code>, but instead we see five. This is exclusively due to the placement of whitespace in this example.
+    </p>
+    <p>
+        If we place the whitespace in a way that coincides with what parts of the language we are writing, we get the expected three.
+    </p>
+    <pre>
+        <code>
+var getThing = function( foo, bar ){
+//             ^         ^        ^--function declaration
+//             |         |--parameter list
+//             |--function declaration
+    return foo + bar;
+//  ^--function body statements
+  }
+//^--function declaration
+        </code>
+    </pre>
+    <p>
+        The response I usually hear at this point is one of either: <em>"I don't care"</em> or <em>"It doesn't matter"</em> which are variations on the same theme of <em>"This is irrelevant to my actual work."</em>
+    </p>
+</section>
+<section>
+    <h3>Whitespace Helps You Achieve Your Goals</h3>
+    <ul>
+        <li>
+            <em>"I want to spend more time reading code."</em>
+        </li>
+        <li>
+            <em>"I don't want it to be clear what my code is doing."</em>
+        </li>
+        <li>
+            <em>"I'm more efficient when I have to mentally deconstruct the file I'm looking at."</em>
+        </li>
+    </ul>
+    <p>
+        Seen above: things no programmer ever says.
+    </p>
+    <blockquote>
+        Treat your code like poetry and take it to the edge of the bare minimum.
+        <span class="author"><a href="https://medium.com/@ilyothehorrid/writing-code-for-humans-5b80a89f439c">Ilya Dorman</a></span>
+    </blockquote>
+    <p>
+        In the most basic sense, developers are language parsers. We're smart language parsers, though, in that we can inject new code whenever we want to. On the other hand, we're extremely inefficient language parsers: we're terrible at reading source code, because we have to <a href="https://medium.com/@ilyothehorrid/writing-code-for-humans-5b80a89f439c">do it visually.</a> One thing that people see when they look at text is <a href="https://en.wikipedia.org/wiki/River_%28typography%29">rivers.</a> In typography, you try your very hardest to avoid rivers. They lead the eye to unintended places, and they distract from the actual content. In programming, it <strong>helps</strong> to have the eye guided to certain places. A river guiding you to <code>(</code> or <code>{</code> isn't helpful. A river guiding you to <code>foo</code> or <code>return</code> is incredibly valuable.
+    </p>
+    <p>
+        As we develop, our goals are usually two-fold:
+    </p>
+    <ol>
+        <li>
+            Write functional software
+        </li>
+        <li>
+            Write efficient software
+        </li>
+    </ol>
+    <p>
+        We apply this to ourselves: most developers thrive where they are effective (<em>functional</em>) and efficient. We've already established that <strong>the eye works best by seeing light, not dark</strong>. We've established &mdash; if not incontrovertibly, at least arguably &mdash; that <strong>whitespace demarcates <em>syntactical context shifts</em></strong>. We've established that <strong>developers are parsing code for efficiency and understanding</strong>, and that a visual clue like <strong>proper whitespace placement is helpful to guide the human eye</strong>.
+    </p>
+    <p>
+        In my mind, there's only one outcome: a developer accepts that writing code that guides the eye to important parts of code is crucial to improving maintainability, readability, and reducing bugs; or they accept that their habits are more important than those aspects of their software.
+    </p>
+    <p>
+        <strong>I don't think there's a real choice.</strong>
+    </p>
+</section>
+<section>
+    <h3>A Closing Note</h3>
+    <p>
+        I firmly believe that with a complete explanation, most developers find that following good <em>whitespace rules</em> like those outlined above (and I mean exactly like those above) leads to more easily understood code and &mdash; fundamentally &mdash; to <strong>writing</strong> better code.
+    </p>
+    <p>
+        That understanding <em>de facto</em> requires a complete understanding of the reasoning behind these <em>whitespace rules</em>. That said, it can sometimes be helpful to enforce the rules to promote discussion of why. Enforcement without discussion is worthless and fosters the lack of developer ownership I mentioned earlier.
+    </p>
+    <blockquote>
+        Following good whitespace rules like those outlined above leads to more easily understood code and &mdash; fundamentally &mdash; to writing better code.
+    </blockquote>
+    <p>
+        I offer here a small <a href="http://eslint.org/">eslint</a> file that enforces most of these rules. If you promise to discuss these rules and the <em>why</em> behind them with your peers, you can <a href="/build/files/.eslintrc">download it</a>.
+    </p>
+    <p>
+        <em>Carefully note: whitespace doesn't <strong>just</strong> demarcate </em>syntactical context switches<em>. It also demarcates </em>logical context switches<em>. As such, the rule this file is missing (and I can't polyfill without writing an eslint plugin) is enforcing a </em>line break before the return statement<em>. This is a massive contextual switch from </em>function statements<em> to a </em>flow control handoff<em>. Encourage structured whitespace at these kinds of logical breaks, too.</em>
+    </p>
+</section>
+<div class="footnotes">
+    <span id="one"><strong>*</strong> &mdash; Or at the very least a passionate programmer, who is almost always "good" in some sense of the word</span>
+    <br />
+    <span id="two"><strong>^</strong> &mdash; It's JavaScript, but it doesn't matter &mdash; the statement applies regardless</span>
+</div>
