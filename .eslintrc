@@ -4,9 +4,9 @@
     },
     "rules": {
         "strict": [ 1, "function" ],
-        "no-console": false,
+        "no-console": 2,
         "brace-style": [ 2, "stroustrup", { "allowSingleLine": true } ],
-        "padded-blocks": "never",
+        "padded-blocks": [ 2, "never" ],
         "no-multiple-empty-lines": [ 1, {
             "max": 1
         } ],
