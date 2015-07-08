@@ -9,8 +9,7 @@ a.btn{
 button{
     border: none;
     @include border-radius( 0.25em );
-
-    background-color: $info;
+    @include button( $info );
 
     padding: 0.5em 1em;
     margin: 0.1em;
@@ -18,28 +17,13 @@ button{
     color: $text;
     text-shadow: 0 1px 1px $dark-text;
 
-    &:active,
-    &:focus{
-        box-shadow: inset 2px 2px 3px make-dark( $info );
-    }
-
     &[type="submit"],
     &.confirm{
-        background-color: $okay;
-
-        &:active,
-        &:focus{
-            box-shadow: inset 2px 2px 3px make-dark( $okay );
-        }
+        @include button( $okay );
     }
 
     &.error{
-        background-color: $error;
-
-        &:active,
-        &:focus{
-            box-shadow: inset 2px 2px 3px make-dark( $error );
-        }
+        @include button( $error );
     }
 }
 
