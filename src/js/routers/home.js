@@ -1,13 +1,13 @@
 define(
     [
         // Libraries
-        "strap/backbone",
+        'strap/backbone',
         // Helpers
-        "objects/LayoutManager",
+        'objects/LayoutManager',
         // Dependencies
-        "objects/Router",
+        'objects/Router',
         // Layouts & Views
-        "views/home/default"
+        'views/home/default'
     ],
     function(
         Backbone,
@@ -15,9 +15,9 @@ define(
         BaseRouter,
         DefaultHomeView
     ){
-        "use strict";
+        'use strict';
         var Mod = function(){
-            this.name = "home";
+            this.name = 'home';
         };
 
         Mod.prototype = new BaseRouter();
@@ -28,10 +28,10 @@ define(
             rtr.get( /^\/$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
-                layout.explore( "content.page" ).show( DefaultHomeView );
+                layout.explore( 'content.page' ).show( DefaultHomeView );
 
                 self.set( {
-                    "title": "Home"
+                    'title': 'Home'
                 } );
             } );
         };

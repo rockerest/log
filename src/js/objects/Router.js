@@ -1,13 +1,13 @@
 define(
     [
-        "underscore",
-        "objects/LayoutManager"
+        'underscore',
+        'objects/LayoutManager'
     ],
     function(
         _,
         LayoutManager
     ){
-        "use strict";
+        'use strict';
         var BaseRouter = function(){
             this.layoutManager = LayoutManager;
         };
@@ -15,7 +15,7 @@ define(
         BaseRouter.prototype.set = function( options ){
             var opts = _( options );
 
-            if( opts.has( "title" ) ){
+            if( opts.has( 'title' ) ){
                 this.layoutManager.setLayoutTitle( options.title );
             }
         };

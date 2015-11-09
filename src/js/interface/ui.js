@@ -1,12 +1,12 @@
 define(
     [
-        "underscore", "jquery",
-        "qtip2"
+        'underscore', 'jquery',
+        'qtip2'
     ],
     function(
         _, $
     ){
-        "use strict";
+        'use strict';
         var Interface = function(){
             this.$ = $;
             this._ = _;
@@ -29,7 +29,7 @@ define(
             }
 
             return {
-                "restore": function(){
+                'restore': function(){
                     $element.html( content );
                     return $element;
                 }

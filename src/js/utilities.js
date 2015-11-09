@@ -1,11 +1,16 @@
 define(
-    function(){
-        "use strict";
+    [
+        'objects/RuleBreaker'
+    ],
+    function(
+        RuleBreaker
+    ){
+        'use strict';
         var Utilities = {};
 
         Utilities.extend = function( parent, child ){
-            var childPrototype = child.prototype,
-                key;
+            var childPrototype = child.prototype;
+            var key;
 
             child.prototype = Object.create( parent.prototype );
             for( key in childPrototype ){
@@ -14,26 +19,22 @@ define(
 
             child.prototype.constructor = child;
 
-            Object.defineProperty( child.prototype, "constructor", {
-                enumerable: false,
-                value: child
+            Object.defineProperty( child.prototype, 'constructor', {
+                'enumerable': false,
+                'value': child
             } );
         };
 
         Utilities.warn = function( message ){
-            if( console && console.warn ){
-                console.warn( message );
-            }
+            RuleBreaker.console.warn( message );
         };
 
         Utilities.error = function( message ){
-            if( console && console.error ){
-                console.error( message );
-            }
+            RuleBreaker.console.error( message );
         };
 
         Utilities.setTitle = function( name ){
-            document.title = name + " :: Log";
+            document.title = name + ' :: Log';
         };
 
         return Utilities;

@@ -22,12 +22,12 @@
     "vendor": {
         "files": [
             {
-                "src": "./vendor/require/require.js",
-                "dest": "./build/vendor/require/require.min.js"
+                "src": "./node_modules/requirejs/require.js",
+                "dest": "./build/vendor/requirejs/require.min.js"
             },
             {
                 "expand": true,
-                "cwd": "vendor/font-awesome/fonts/",
+                "cwd": "node_modules/font-awesome/fonts/",
                 "src": ["**"],
                 "dest": "build/vendor/font-awesome/"
             }

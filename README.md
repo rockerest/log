@@ -14,11 +14,10 @@ Before you do anything in the repo:
 
     Sometimes the `node` command is not registered properly. This usually depends on the mechanism by which you installed Node. If `node -v` just isn't a command on your system, you can [try this](http://stackoverflow.com/a/18130296/597122). In most cases, all you need to do is `sudo ln -s /usr/bin/nodejs /usr/bin/node`. For Windows users, make sure the install directory for `node` is in your system `%PATH%`.
 
-- you will need to install [Bower](http://bower.io/#install-bower) and [Grunt](http://gruntjs.com/getting-started) globally  
+- you will need to install [Grunt](http://gruntjs.com/getting-started) globally  
 
-    Run these commands in your terminal:  
-    `sudo npm install -g grunt-cli`  
-    `sudo npm install -g bower`  
+    Run this command in your terminal:  
+    `sudo npm install -g grunt-cli`
 
 - you will need to install the application dependencies and manipulate them as needed  
 

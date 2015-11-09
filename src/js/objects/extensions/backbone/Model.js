@@ -1,7 +1,7 @@
 define(
     [],
     function(){
-        "use strict";
+        'use strict';
         var Model = {};
 
         return Model;

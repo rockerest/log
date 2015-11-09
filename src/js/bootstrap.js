@@ -1,84 +1,67 @@
-/*eslint key-spacing:0*/
 requirejs.config( {
-    "paths": {
+    'paths': {
         // SHORTCUTS
-        "vw":                       "../content/templates/views",
-        "lyt":                      "../content/templates/layouts",
-        "translations":             "../content/translations",
-        "data":                     "../content/data",
-        "strap":                    "objects/bootstrappers",
+        'vw': '../content/templates/views',
+        'lyt': '../content/templates/layouts',
+        'translations': '../content/translations',
+        'data': '../content/data',
+        'strap': 'objects/bootstrappers',
+        'hljs-langs': '../../node_modules/highlight.js/lib/languages',
 
         // LIBRARIES
-        "backbone":                 "../../vendor/backbone/backbone",
-        "underscore":               "../../vendor/underscore/underscore",
-        "sammy":                    "../../vendor/sammy/sammy",
-        "jquery":                   [ "//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min", "../../vendor/jquery/jquery" ],
-        "ribcage":                  "../../vendor/ribcage/ribcage",
-        "cookies":                  "../../vendor/Cookies/cookies",
-        "backgrid":                 "../../vendor/backgrid/backgrid",
-        "moment":                   "../../vendor/moment/moment",
-        "pikaday":                  "../../vendor/pikaday/pikaday",
-        "highlight":                "../vendor/highlightjs/highlight.pack",
+        'backbone': '../../node_modules/backbone/backbone',
+        'underscore': '../../node_modules/underscore/underscore',
+        'sammy': '../../node_modules/sammy/lib/sammy',
+        'jquery': [ '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min', '../../node_modules/jquery/dist/jquery' ],
+        'ribcage': '../../node_modules/backbone-ribcage/build/ribcage',
+        'moment': '../../node_modules/moment/min/moment-with-locales',
+        'hljs': '../../node_modules/highlight.js/lib/highlight',
 
         // LIBRARY PLUGINS
         // jQuery Plugins
-        "qtip2":                    "../../vendor/qtip2/jquery.qtip.min",
-        "noty":                     "../../vendor/noty/jquery.noty.packaged",
+        'qtip2': '../../node_modules/qTip2/dist/jquery.qtip',
+        'noty': '../../node_modules/noty/js/noty/packaged/jquery.noty.packaged',
         // Moment Plugins
-        "moment-timezone":          "../../vendor/moment-timezone/moment-timezone-with-data-2010-2020",
+        'moment-timezone': '../../node_modules/moment-timezone/builds/moment-timezone-with-data-2010-2020',
         // Require plugins
-        "text":                     "../../vendor/requirejs-text/text",
-        //"async":                  "../../vendor/requirejs-plugins/async",
-        //"font":                   "../../vendor/requirejs-plugins/font",
-        //"goog":                   "../../vendor/requirejs-plugins/goog",
-        //"image":                  "../../vendor/requirejs-plugins/image",
-        "json":                     "../../vendor/requirejs-plugins/json",
-        //"noext":                  "../../vendor/requirejs-plugins/noext",
-        //"mdown":                  "../../vendor/requirejs-plugins/mdown",
-        //"propertyParser":         "../../vendor/requirejs-plugins/propertyParser",
-        //"markdownConverter":      "../../vendor/requirejs-plugins/Markdown.Converter",
-        "i18n":                     "../../vendor/requirejs-i18n/i18n",
+        'text': '../../node_modules/requirejs-text/text',
+        'json': '../../node_modules/requirejs-plugins/src/json',
+        'i18n': '../../node_modules/i18n/i18n',
         // Backbone plugins
-        "backbone.localstorage":    "../../vendor/backbone.localStorage/backbone.localStorage",
-        "backbone.paginator":       "../../vendor/backbone.paginator/lib/backbone.paginator",
-        "backbone.validation":      "../../vendor/backbone.validation/dist/backbone-validation-amd-min",
-        "backbone.nested-model":    "../../vendor/backbone-nested-model/backbone-nested",
-        // Backgrid plugins
-        "backgrid-moment-cell":     "../../vendor/backgrid-moment-cell/backgrid-moment-cell",
-        "backgrid-filter":          "../../vendor/backgrid-filter/backgrid-filter",
-        "backgrid-paginator":       "../../vendor/backgrid-paginator/backgrid-paginator"
+        'backbone.validation': '../../node_modules/backbone-validation/dist/backbone-validation-amd'
     },
-    "shim": {
-        "backbone": {
-            "exports": "Backbone"
+    'shim': {
+        'backbone': {
+            'exports': 'Backbone'
         },
-        "underscore": {
-            "exports": "_"
+        'underscore': {
+            'exports': '_'
         },
-        "jquery": {
-            "exports": "jQuery"
+        'jquery': {
+            'exports': 'jQuery'
         }
     },
-    "map": {
-        "*": {
-            "moment": "moment-timezone"
+    'map': {
+        '*': {
+            'moment': 'moment-timezone',
+            'highlight': 'strap/highlight'
         },
-        "moment-timezone": {
-            "moment": "moment"
+        'moment-timezone': {
+            'moment': 'moment'
         }
     }
 } );
 
 window.dotlog = {
-    "channels": {},
-    "layouts": {},
-    "storage": {}
+    'channels': {},
+    'layouts': {},
+    'storage': {}
 };
 
 require(
-    [ "routes" ],
+    [ 'routes' ],
     function( Routes ){
-        "use strict";
+        'use strict';
         Routes.startup();
     }
 );

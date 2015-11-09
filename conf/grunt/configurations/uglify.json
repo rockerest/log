@@ -1,0 +1,7 @@
+{
+    "build": {
+        "files": {
+            "./build/js/log.min.js": "./build/js/log.js"
+        }
+    }
+}

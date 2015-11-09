@@ -1,23 +1,23 @@
 define(
     [
         // Libraries
-        "strap/backbone", "underscore", "ribcage",
+        'strap/backbone', 'underscore', 'ribcage',
         // Helpers
-        "utilities",
+        'utilities',
         // Dependencies
-        "text!lyt/main.html"
+        'text!lyt/main.html'
     ],
     function(
         Backbone, _, Ribcage,
         Utilities,
         tmpl
     ){
-        "use strict";
+        'use strict';
         var MainLayout = function(){
             var regions = {
-                    "page": "main"
-                },
-                internalLayout = new Ribcage();
+                'page': 'main'
+            };
+            var internalLayout = new Ribcage();
 
             internalLayout
                 .addRegions( regions )

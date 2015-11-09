@@ -1,18 +1,18 @@
 define(
     [
         // Libraries
-        "strap/backbone",
+        'strap/backbone',
         // Helpers
-        "objects/Router",
+        'objects/Router',
         // Dependencies
-        "views/post/single"
+        'views/post/single'
     ],
     function(
         Backbone,
         BaseRouter,
         SinglePostView
     ){
-        "use strict";
+        'use strict';
         var Mod = function(){};
 
         Mod.prototype = new BaseRouter();
@@ -23,11 +23,11 @@ define(
             rtr.get( /post\/((?:\w|-)+)\/?$/, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
-                layout.explore( "content.page" ).show(
+                layout.explore( 'content.page' ).show(
                     SinglePostView,
                     {
-                        "title": this.params.splat[ 0 ],
-                        "route": rtr.last_location[ 1 ]
+                        'title': this.params.splat[ 0 ],
+                        'route': rtr.last_location[ 1 ]
                     }
                 );
             } );

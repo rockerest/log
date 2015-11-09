@@ -1,15 +1,19 @@
 define(
     [
-        "utilities",
-        "layouts/log", "layouts/main"
+        'utilities',
+        'layouts/log', 'layouts/main'
     ],
     function(
         Utilities,
         LogLayout, MainLayout
     ){
-        "use strict";
+        'use strict';
         var LayoutManager = {};
-        var layout, getLayout, setLayout, clearLayout, hasLayout;
+        var layout;
+        var getLayout;
+        var setLayout;
+        var clearLayout;
+        var hasLayout;
 
         LayoutManager.getStandardLayout = function( force ){
             if( force === undefined ){
@@ -28,7 +32,7 @@ define(
             } );
 
             if( force ){
-                layout.explore( "content" ).show( MainLayout );
+                layout.explore( 'content' ).show( MainLayout );
             }
 
             return layout;
@@ -36,17 +40,20 @@ define(
 
         LayoutManager.getLayout = function( fallback ){
             var tempLayout;
+            var lyt;
 
             if( hasLayout() ){
-                return getLayout();
+                lyt = getLayout();
             }
             else{
                 tempLayout = fallback();
 
                 setLayout( tempLayout );
 
-                return tempLayout;
+                lyt = tempLayout;
             }
+
+            return lyt;
         };
 
         LayoutManager.clearLayout = function(){

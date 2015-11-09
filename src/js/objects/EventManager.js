@@ -9,15 +9,15 @@
 define(
     [
         // Libraries
-        "strap/backbone", "underscore",
+        'strap/backbone', 'underscore',
         // Helpers
-        "objects/Storage"
+        'objects/Storage'
     ],
     function(
         Backbone, _,
         Storage
     ){
-        "use strict";
+        'use strict';
         var getArgsArray = function( args ){
             return Array.prototype.slice.call( args );
         };
@@ -32,10 +32,10 @@ define(
              *
              * @returns {Object}
              */
-            "listen": function( scope, events ){
+            'listen': function( scope, events ){
                 var list = window.dotlog.channels[ scope ] = _.extend( {}, Backbone.Events, {
-                        "broadcast": EventManager
-                    } );
+                    'broadcast': EventManager
+                } );
 
                 _( events ).each( function( behavior, name ){
                     list.on( name, function(){
@@ -45,38 +45,37 @@ define(
                     } );
                 } );
 
-                list.on( "all", function(){
-                    var args = getArgsArray( arguments ),
-                        name = args.shift(),
-                        parts = name.split( ":" ),
-                        topScope = parts.shift(),
-                        channels = _( window.dotlog.channels ).keys();
+                list.on( 'all', function(){
+                    var args = getArgsArray( arguments );
+                    var name = args.shift();
+                    var parts = name.split( ':' );
+                    var topScope = parts.shift();
+                    var channels = _( window.dotlog.channels ).keys();
 
                     if( _( channels ).indexOf( topScope ) === -1 ){
                         parts.unshift( topScope );
-                        args.unshift( scope + ":__bubbling__:" + parts.join( ":" ) );
+                        args.unshift( scope + ':__bubbling__:' + parts.join( ':' ) );
 
                         // FIXME - This is just a hack to test for app-only events
                         // TODO - Why are odd events being fired on these event handlers?
-                        if( name.charAt( name.length - 1 ) !== ":" ){
+                        if( name.charAt( name.length - 1 ) !== ':' ){
                             EventManager.trigger.apply( EventManager, args );
                         }
                     }
-
                 } );
 
                 list.listenTo(
                     EventManager,
-                    "all",
+                    'all',
                     function(){
-                        var args = getArgsArray( arguments ), // eg: [ "scope:event:fire", param1, param2 ]
-                            parts = args.shift().split( ":" ), // [ "scope", "event", "fire" ]
-                            topScope = parts.shift(), // "scope"
-                            bubbling = false,
-                            matching = scope === topScope,
-                            eventName;
+                        var args = getArgsArray( arguments ); // eg: [ 'scope:event:fire', param1, param2 ]
+                        var parts = args.shift().split( ':' ); // [ 'scope', 'event', 'fire' ]
+                        var topScope = parts.shift(); // 'scope'
+                        var bubbling = false;
+                        var matching = scope === topScope;
+                        var eventName;
 
-                        if( parts[ 0 ] === "__bubbling__" ){
+                        if( parts[ 0 ] === '__bubbling__' ){
                             parts.shift();
                             bubbling = true;
                         }
@@ -84,9 +83,9 @@ define(
                             bubbling = false;
                         }
 
-                        eventName = parts.join( ":" );
+                        eventName = parts.join( ':' );
                         if( !matching ){
-                            eventName = topScope + ":" + eventName;
+                            eventName = topScope + ':' + eventName;
                         }
 
                         args.unshift( eventName );
@@ -107,12 +106,12 @@ define(
              * @param {string} scope - The name of the listener
              * @returns {Object|undefined}
              */
-            "getScope": function( scope ){
+            'getScope': function( scope ){
                 return window.dotlog.channels[ scope ];
             }
         } );
 
-        EventManager.listen( "core", {
+        EventManager.listen( 'core', {
             /**
              * Stores data in in-memory storage
              *
@@ -120,7 +119,7 @@ define(
              *
              * @see module:objects/Storage.set
              */
-            "data:store": function( map ){
+            'data:store': function( map ){
                 _( map ).each( function( data, key ){
                     Storage.set( key, data );
                 } );
@@ -132,7 +131,7 @@ define(
              *
              * @see module:objects/Storage.del
              */
-            "data:remove": function( keys ){
+            'data:remove': function( keys ){
                 _( keys ).each( function( key ){
                     Storage.del( key );
                 } );
@@ -144,7 +143,7 @@ define(
              *
              * @see module:objects/Storage.get
              */
-            "data:get": function( map ){
+            'data:get': function( map ){
                 _( map ).each( function( handler, key ){
                     handler( Storage.get( key ) );
                 } );
@@ -154,8 +153,8 @@ define(
              *
              * @event module:objects/EventManager.data:payload:prime
              */
-            "data:payload:prime": function( callback ){
-                Storage.set( "payload", callback );
+            'data:payload:prime': function( callback ){
+                Storage.set( 'payload', callback );
             },
             /**
              * Navigates to a new location.
@@ -166,7 +165,7 @@ define(
              *
              * @fires module:objects/EventManager.data:payload:prime
              */
-            "chrome:navigate": function( href, options ){
+            'chrome:navigate': function( href, options ){
                 var sammyAppRouter = window.dotlog.router;
 
                 if( options === undefined ){
@@ -174,10 +173,10 @@ define(
                 }
 
                 if( options.payload ){
-                    this.trigger( "data:payload:prime", options.payload );
+                    this.trigger( 'data:payload:prime', options.payload );
                 }
 
-                if( href.indexOf( "http" ) > -1 ){
+                if( href.indexOf( 'http' ) > -1 ){
                     window.location = href;
                 }
                 else{

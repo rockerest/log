@@ -1,25 +1,25 @@
 define(
     [
         // Libraries
-        "strap/backbone", "underscore", "moment",
+        'strap/backbone', 'underscore', 'moment',
         // Dependencies
-        "text!vw/posts/default.html"
+        'text!vw/posts/default.html'
     ],
     function(
         Backbone, _, Moment,
         tmpl
     ){
-        "use strict";
+        'use strict';
         var PostView = Backbone.View.extend( {
-            "template": _.template( tmpl ),
+            'template': _.template( tmpl ),
 
-            "tagName": "div",
-            "className": "post",
+            'tagName': 'div',
+            'className': 'post',
 
-            "render": function(){
+            'render': function(){
                 this.$el.html( this.template( {
-                    "meta": this.meta,
-                    "post": this.post
+                    'meta': this.meta,
+                    'post': this.post
                 } ) );
 
                 this.delegateEvents();
@@ -27,9 +27,9 @@ define(
                 return this;
             },
 
-            "initialize": function( Post ){
-                var meta = Post.getInformation(),
-                    content = Post.getPost();
+            'initialize': function( Post ){
+                var meta = Post.getInformation();
+                var content = Post.getPost();
 
                 meta.pubMoment = Post.getPublishedMoment();
 

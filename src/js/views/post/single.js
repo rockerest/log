@@ -1,17 +1,17 @@
 define(
     [
         // Libraries
-        "strap/backbone", "underscore", "moment",
+        'strap/backbone', 'underscore', 'moment',
         // collections
-        "collections/posts",
+        'collections/posts',
         // posts
-        "json!data/posts.json",
+        'json!data/posts.json',
         // Views
-        "views/post/default",
+        'views/post/default',
         // Events
-        "events/post/single",
+        'events/post/single',
         // Helpers
-        "utilities"
+        'utilities'
     ],
     function(
         Backbone, _, Moment,
@@ -21,32 +21,32 @@ define(
         vent,
         Utilities
     ){
-        "use strict";
+        'use strict';
         var SinglePostView = Backbone.View.extend( {
-            "events": {
-                "click sup [data-href]": function( e ){
-                    vent.trigger( "click:post:footnote:signal", { "link": e.target } );
+            'events': {
+                'click sup [data-href]': function( e ){
+                    vent.trigger( 'click:post:footnote:signal', { 'link': e.target } );
                 },
-                "click .comments .load": function(){
-                    vent.trigger( "click:post:comments:load", { "post": this.post } );
+                'click .comments .load': function(){
+                    vent.trigger( 'click:post:comments:load', { 'post': this.post } );
                 }
             },
-            "render": function(){
+            'render': function(){
                 Utilities.setTitle( this.post.getInformation().title );
 
                 this.view.render();
                 this.$el.append( this.view.$el );
 
-                vent.trigger( "ux:start" );
+                vent.trigger( 'ux:start' );
 
                 return this;
             },
 
-            "initialize": function( options ){
-                var postList = new PostCollection( posts ),
-                    identifiedPost = postList.filter( function( post ){
-                        return post.getInformation().safeTitle === options.title;
-                    } );
+            'initialize': function( options ){
+                var postList = new PostCollection( posts );
+                var identifiedPost = postList.filter( function( post ){
+                    return post.getInformation().safeTitle === options.title;
+                } );
 
                 if( identifiedPost.length === 1 ){
                     this.post = identifiedPost[ 0 ];
@@ -54,7 +54,7 @@ define(
                     this.render();
                 }
                 else{
-                    location.href = "/error/404/" + options.route;
+                    location.href = '/error/404/' + options.route;
                     return false;
                 }
             }

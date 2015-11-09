@@ -1,28 +1,28 @@
 define(
     [
         // Libraries
-        "strap/backbone", "underscore", "ribcage",
+        'strap/backbone', 'underscore', 'ribcage',
         // Helpers
-        "utilities",
+        'utilities',
         // Dependencies
-        "text!lyt/log.html", "layouts/main"
+        'text!lyt/log.html', 'layouts/main'
     ],
     function(
         Backbone, _, Ribcage,
         Utilities,
         tmpl, MainLayout
     ){
-        "use strict";
+        'use strict';
         var LogLayout = function(){
             var regions = {
-                "content": "#content"
+                'content': '#content'
             };
             var presets = {
-                "content": {
-                    "object": MainLayout
+                'content': {
+                    'object': MainLayout
                 }
             };
-            var el = "body";
+            var el = 'body';
             var internalLayout = new Ribcage();
 
             internalLayout

@@ -104,7 +104,7 @@
         Before we talk about what code <strong>is</strong>, we have to talk about what code is: the boring, dry syntax. As you read through the next five code examples and their accompanying text, you may have some sort of visceral reaction. This is good. It means you have an opinion about the details, which, to me, is one of the marks of a good programmer.<sup><a data-href="#one">*</a></sup>
     </p>
     <pre>
-        <code>
+        <code class="js">
 var getThing = function (foo, bar)
 {
     return foo + bar;
@@ -118,7 +118,7 @@ var getThing = function (foo, bar)
         Take a look at this example:
     </p>
     <pre>
-        <code>
+        <code class="js">
 var thing = getThing (foo, bar);
         </code>
     </pre>
@@ -129,7 +129,7 @@ var thing = getThing (foo, bar);
         To understand why this is, we need to break this code into parts. I'll do it inline for reference, on the function definition first. You'll see that I've removed all whitespace. This isn't a mistake &mdash; it's so that we can talk about the language without style preferences intruding; nobody I know of likes their code without whitespace, so this will make nobody happy.
     </p>
     <pre>
-        <code>
+        <code class="js">
 var getThing=function(foo,bar){return foo+bar;};
 //           ^        ^        ^
 //           |        |        |--function body statements
@@ -146,7 +146,7 @@ var getThing=function(foo,bar){return foo+bar;};
         It's simple to verify the breakdown above, because the parameter list in a function declaration is optional, as are function body statements. Therefore, we can write the minimum possible functional declaration as such:
     </p>
     <pre>
-        <code>
+        <code class="js">
 var getThing=function(){};
         </code>
     </pre>
@@ -156,8 +156,8 @@ var getThing=function(){};
     <p>
         So now let's look at the second code example &mdash; the invocation.
     </p>
-    <pre>
-        <code>
+    <pre class="js">
+        <code class="js">
 var thing=getThing("this","that");
         </code>
     </pre>
@@ -170,8 +170,8 @@ var thing=getThing("this","that");
     <p>
         Now that we've established which parts of the language we're dealing with, let's use the very first code example in this section and write out the parts of the code. But wait, we've also established that whitespace is good for the eye: it indicates where <strong>light stops</strong> and <strong>dark begins</strong>. This is a clue in our code of where things start and stop. So in this next exercise, we will mark every part of the code, and we will also mark what part of the code lies immediately after the whitespace.
     </p>
-    <pre>
-        <code>
+    <pre class="js">
+        <code class="js">
 var getThing = function (foo, bar)
 //             ^        ^^       ^--function declaration
 //             |        ||--parameter list
@@ -195,7 +195,7 @@ var getThing = function (foo, bar)
         If we place the whitespace in a way that coincides with what parts of the language we are writing, we get the expected three.
     </p>
     <pre>
-        <code>
+        <code class="js">
 var getThing = function( foo, bar ){
 //             ^         ^        ^--function declaration
 //             |         |--parameter list

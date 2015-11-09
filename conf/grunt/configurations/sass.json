@@ -4,7 +4,7 @@
             "style": "expanded"
         },
         "files": {
-            "build/css/screen.css": "src/sass/screen.scss"
+            "build/css/screen.css": "src/scss/screen.scss"
         }
     }
 }

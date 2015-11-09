@@ -1,18 +1,18 @@
 define(
     [
         // Libraries
-        "sammy", "underscore",
+        'sammy', 'underscore',
         // Routers
-        "routers/log", "routers/home", "routers/posts",
+        'routers/log', 'routers/home', 'routers/posts',
         // Error Router
-        "routers/errors"
+        'routers/errors'
     ],
     function(
         Sammy, _,
         LogRouter, HomeRouter, PostRouter,
         ErrorRouter
     ){
-        "use strict";
+        'use strict';
         var Routes = {};
         var router = new Sammy();
 
