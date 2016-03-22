@@ -266,11 +266,15 @@ var getThing = function( foo, bar ){
         Following good whitespace rules like those outlined above leads to more easily understood code and &mdash; fundamentally &mdash; to writing better code.
     </blockquote>
     <p>
-        I offer here a small <a href="http://eslint.org/">eslint</a> file that enforces most of these rules. If you promise to discuss these rules and the <em>why</em> behind them with your peers, you can <a href="/build/files/.eslintrc">download it</a>.
+        I offer here a small <a href="http://eslint.org/">eslint</a> file that enforces most of these rules. If you promise to discuss these rules and the <em>why</em> behind them with your peers, you can <a href="https://gitlab.com/snippets/14317">download it</a>.
     </p>
     <p>
         <em>Carefully note: whitespace doesn't <strong>just</strong> demarcate </em>syntactical context switches<em>. It also demarcates </em>logical context switches<em>. As such, the rule this file is missing (and I can't polyfill without writing an eslint plugin) is enforcing a </em>line break before the return statement<em>. This is a massive contextual switch from </em>function statements<em> to a </em>flow control handoff<em>. Encourage structured whitespace at these kinds of logical breaks, too.</em>
     </p>
+</section>
+<section>
+    <h4>Updates</h4>
+    <emphasis>21-03-2016: This post was updated to point to a new, externally-updated location for the hosted .eslint file.</emphasis>
 </section>
 <div class="footnotes">
     <span id="three"><strong>†</strong> &mdash; Yes, I know this is blasphemous; it's a joke.</span>
