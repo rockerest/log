@@ -1,25 +1,25 @@
 define(
     [
-        'objects/Storage'
+        "objects/Storage"
     ],
     function(
         Storage
     ){
-        'use strict';
+        "use strict";
         var mod = {};
 
         mod.register = function( rtr ){
             rtr.notFound = function(){
-                location.href = '/error/404/' + this.last_location[ 1 ];
+                location.href = "/error/404/" + this.last_location[ 1 ];
             };
 
             rtr.after( function(){
-                var payload = Storage.get( 'payload' );
+                var payload = Storage.get( "payload" );
 
-                if( typeof payload === 'function' ){
+                if( typeof payload === "function" ){
                     payload();
 
-                    Storage.del( 'payload' );
+                    Storage.del( "payload" );
                 }
             } );
         };

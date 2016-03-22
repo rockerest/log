@@ -1,54 +1,54 @@
 define(
     [
-        'highlight',
-        'interface/ui'
+        "highlight",
+        "interface/ui"
     ],
     function(
         Highlight,
         Ui
     ){
-        'use strict';
+        "use strict";
         var SinglePostUi = function(){};
 
         SinglePostUi.prototype = new Ui();
 
         SinglePostUi.prototype.startUx = function(){
-            this.$( '.hide' )
+            this.$( ".hide" )
                 .hide()
-                .removeClass( 'hide' );
+                .removeClass( "hide" );
 
-            this.$( 'div.more' ).hide();
+            this.$( "div.more" ).hide();
 
             if( this.hasCode() ){
-                this.$( this.getPost() ).find( 'pre code' ).each( function( i, code ){
+                this.$( this.getPost() ).find( "pre code" ).each( function( i, code ){
                     Highlight.highlightBlock( code );
                 } );
             }
         };
 
         SinglePostUi.prototype.getFootnoteSignalledBy = function( element ){
-            var footnote = this.$( element ).data( 'href' );
+            var footnote = this.$( element ).data( "href" );
 
             return this.$( footnote )[ 0 ];
         };
 
         SinglePostUi.prototype.scrollTo = function( element ){
-            this.$( 'html, body' ).animate( {
-                'scrollTop': this.$( element ).offset().top
+            this.$( "html, body" ).animate( {
+                "scrollTop": this.$( element ).offset().top
             }, 800 );
         };
 
         SinglePostUi.prototype.loadComments = function( Post ){
-            this.$( '.comments .load' ).hide();
+            this.$( ".comments .load" ).hide();
 
             this.loadDisqusThread( Post );
         };
 
         SinglePostUi.prototype.loadDisqusThread = function( Post ){
-            var shortName = 'tomrandolph';
-            var scriptSrc = '//' + shortName + '.disqus.com/embed.js';
+            var shortName = "tomrandolph";
+            var scriptSrc = "//" + shortName + ".disqus.com/embed.js";
             var identifier = Post.getInformation().safeTitle;
-            var url = 'http://log.rockerest.com/post/' + identifier;
+            var url = "http://log.rockerest.com/post/" + identifier;
 
             /* eslint camelcase:0 */
             window.disqus_identifier = identifier;
@@ -58,14 +58,14 @@ define(
 
             if( !window.DISQUS ){
                 this.$.ajax( {
-                    'url': scriptSrc,
-                    'dataType': 'script'
+                    "url": scriptSrc,
+                    "dataType": "script"
                 } );
             }
             else{
                 window.DISQUS.reset( {
-                    'reload': true,
-                    'config': function(){
+                    "reload": true,
+                    "config": function(){
                         this.page.identifier = identifier;
                         this.page.url = url;
                     }
@@ -76,15 +76,15 @@ define(
         };
 
         SinglePostUi.prototype.getPost = function(){
-            return this.$( 'div.post div.body' )[ 0 ];
+            return this.$( "div.post div.body" )[ 0 ];
         };
 
         SinglePostUi.prototype.showDisqusThread = function(){
-            this.$( '#disqus_thread' ).show();
+            this.$( "#disqus_thread" ).show();
         };
 
         SinglePostUi.prototype.hasCode = function(){
-            return this.$( this.getPost() ).find( 'pre code' ).length;
+            return this.$( this.getPost() ).find( "pre code" ).length;
         };
 
         return SinglePostUi;

@@ -4,15 +4,13 @@ module.exports = function( grunt ){
     grunt.registerTask( 'style', 'Compile the SASS', function(){
         grunt.task.run( [
             'sass:dev',
-            'cssmin',
-            'notify:sass'
+            'cssmin'
         ] );
     } );
 
     grunt.registerTask( 'code', 'Compile the code', function(){
         grunt.task.run( [
-            'requirejs:compile',
-            'notify:requirejs'
+            'requirejs:compile'
         ] );
     } );
 
@@ -25,7 +23,6 @@ module.exports = function( grunt ){
             'copy:images',
             'copy:vendor',
             'copy:data',
-            'copy:hosted',
             'uglify'
         ] );
     } );
@@ -35,8 +32,7 @@ module.exports = function( grunt ){
     ] );
 
     grunt.registerTask( 'default', [
-        'build',
-        'watch'
+        'build'
     ] );
 
     grunt.registerTask( 'parsePosts', [

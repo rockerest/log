@@ -1,18 +1,18 @@
 define(
     [
         // Libraries
-        'strap/backbone',
+        "strap/backbone",
         // Helpers
-        'objects/Router',
+        "objects/Router",
         // Dependencies
-        'views/error/default'
+        "views/error/default"
     ],
     function(
         Backbone,
         BaseRouter,
         ErrorView
     ){
-        'use strict';
+        "use strict";
         var Mod = function(){};
 
         Mod.prototype = new BaseRouter();
@@ -23,16 +23,16 @@ define(
             rtr.get( /error\/(\d+)\/(.+)$/i, function(){
                 var layout = self.layoutManager.getStandardLayout();
 
-                layout.explore( 'content.page' ).show(
+                layout.explore( "content.page" ).show(
                     ErrorView,
                     {
-                        'error': this.params.splat[ 0 ],
-                        'route': this.params.splat[ 1 ]
+                        "error": this.params.splat[ 0 ],
+                        "route": this.params.splat[ 1 ]
                     }
                 );
 
                 self.set( {
-                    'title': 'An Error - ' + this.params.splat[ 0 ]
+                    "title": "An Error - " + this.params.splat[ 0 ]
                 } );
             } );
         };

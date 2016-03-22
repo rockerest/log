@@ -11,16 +11,16 @@
 
 define(
     function(){
-        'use strict';
+        "use strict";
         var RuleBreaker = {};
 
         RuleBreaker.console = {
-            'warn': function( message ){
+            "warn": function( message ){
                 if( console && console.warn ){
                     console.warn( message );
                 }
             },
-            'error': function( message ){
+            "error": function( message ){
                 if( console && console.error ){
                     console.error( message );
                 }

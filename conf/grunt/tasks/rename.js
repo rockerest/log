@@ -5,7 +5,7 @@ module.exports = function( grunt ){
 
     grunt.registerTask( 'rename', 'Rename some files', function(){
         var buildScss = grunt.file.expandMapping(
-            [ '**/monokai_sublime.css' ],
+            [ '**/monokai-sublime.css' ],
             './',
             {
                 'cwd': './',

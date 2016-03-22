@@ -1,24 +1,24 @@
 define(
     [
         // Libraries
-        'strap/backbone', 'moment',
+        "strap/backbone", "moment",
         // Models
-        'models/post'
+        "models/post"
     ],
     function(
         Backbone, Moment,
         PostModel
     ){
-        'use strict';
+        "use strict";
         var PostCollection = Backbone.Collection.extend( {
-            'model': PostModel,
-            'comparator': function( a, b ){
+            "model": PostModel,
+            "comparator": function( a, b ){
                 var firstMoment = a.getPublishedMoment();
                 var secondMoment = b.getPublishedMoment();
 
                 return secondMoment.diff( firstMoment );
             },
-            'mode': 'client'
+            "mode": "client"
         } );
 
         return PostCollection;

@@ -1,15 +1,15 @@
 define(
     [
         // Libraries
-        'strap/backbone', 'underscore', 'moment',
+        "strap/backbone", "underscore", "moment",
         // collections
-        'collections/posts',
+        "collections/posts",
         // posts
-        'json!data/posts.json',
+        "json!data/posts.json",
         // Views
-        'views/post/default',
+        "views/post/default",
         // Events
-        'events/home/default'
+        "events/home/default"
     ],
     function(
         Backbone, _, Moment,
@@ -18,12 +18,12 @@ define(
         PostView,
         vent
     ){
-        'use strict';
+        "use strict";
         var DefaultHomeView = Backbone.View.extend( {
-            'render': function(){
+            "render": function(){
                 var self = this;
 
-                self.$el.addClass( 'all-posts' );
+                self.$el.addClass( "all-posts" );
 
                 _( this.posts ).each( function( post ){
                     post.render();
@@ -31,12 +31,12 @@ define(
                     self.$el.append( post.$el );
                 } );
 
-                vent.trigger( 'home:ux:start' );
+                vent.trigger( "home:ux:start" );
 
                 return this;
             },
 
-            'initialize': function(){
+            "initialize": function(){
                 var postList = new PostCollection( posts );
                 var Posts = [];
 

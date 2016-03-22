@@ -1,21 +1,21 @@
 define(
     [
-        'strap/backbone', 'moment'
+        "strap/backbone", "moment"
     ],
     function(
         Backbone, moment
     ){
-        'use strict';
+        "use strict";
         var PostModel = Backbone.Model.extend( {
-            'getPost': function(){
-                return this.get( 'post' );
+            "getPost": function(){
+                return this.get( "post" );
             },
-            'getInformation': function(){
-                return this.get( 'meta' );
+            "getInformation": function(){
+                return this.get( "meta" );
             },
 
             // helpers
-            'getPublishedMoment': function(){
+            "getPublishedMoment": function(){
                 return moment( this.getInformation().published );
             }
         } );

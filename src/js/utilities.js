@@ -1,11 +1,11 @@
 define(
     [
-        'objects/RuleBreaker'
+        "objects/RuleBreaker"
     ],
     function(
         RuleBreaker
     ){
-        'use strict';
+        "use strict";
         var Utilities = {};
 
         Utilities.extend = function( parent, child ){
@@ -19,9 +19,9 @@ define(
 
             child.prototype.constructor = child;
 
-            Object.defineProperty( child.prototype, 'constructor', {
-                'enumerable': false,
-                'value': child
+            Object.defineProperty( child.prototype, "constructor", {
+                "enumerable": false,
+                "value": child
             } );
         };
 
@@ -34,7 +34,7 @@ define(
         };
 
         Utilities.setTitle = function( name ){
-            document.title = name + ' :: Log';
+            document.title = name + " :: Log";
         };
 
         return Utilities;

@@ -1,13 +1,13 @@
 define(
     [
-        'utilities',
-        'layouts/log', 'layouts/main'
+        "utilities",
+        "layouts/log", "layouts/main"
     ],
     function(
         Utilities,
         LogLayout, MainLayout
     ){
-        'use strict';
+        "use strict";
         var LayoutManager = {};
         var layout;
         var getLayout;
@@ -32,7 +32,7 @@ define(
             } );
 
             if( force ){
-                layout.explore( 'content' ).show( MainLayout );
+                layout.explore( "content" ).show( MainLayout );
             }
 
             return layout;

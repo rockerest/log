@@ -1,11 +1,11 @@
 define(
     [],
     function(){
-        'use strict';
+        "use strict";
         return {
-            'extend': function( jQuery ){
+            "extend": function( jQuery ){
                 jQuery.extend( jQuery.fn, {
-                    'isWithin': function( pSelector ){
+                    "isWithin": function( pSelector ){
                         return !!this.filter( function(){
                             return jQuery( this ).closest( pSelector ).length;
                         } ).length;
