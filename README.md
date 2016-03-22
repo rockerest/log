@@ -21,8 +21,7 @@ Before you do anything in the repo:
 
 - you will need to install the application dependencies and manipulate them as needed  
 
-    Run these commands in your terminal:  
-    `npm install`  
+    Run this command in your terminal:  
     `grunt setup`
 
 
